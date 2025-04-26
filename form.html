@@ -87,7 +87,6 @@
             display: block;
             margin: 0 auto 25px;
             max-width: 40%;
-
         }
 
         /* Estilo para mensagens de erro */
@@ -101,47 +100,51 @@
             color: #fff;
         }
 
-        /* Estilo aprimorado para multiselect */
-        .custom-multiselect {
-            position: relative;
+        /* Estilo aprimorado para checkboxes */
+        .checkbox-group {
+            margin-bottom: 10px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .checkbox-group label {
+            display: flex;
+            align-items: center;
+            margin-bottom: 5px;
+            color: #bbb;
+            padding: 8px 12px; /* Adiciona padding interno */
+            border-radius: 6px; /* Bordas arredondadas */
+            border: 1px solid #444; /* Cor da borda */
+            background-color: #2a2a2a; /* Cor de fundo */
             margin-bottom: 5px;
         }
 
-        .custom-multiselect select[multiple] {
-            min-height: 120px;
-            padding: 10px;
-            border-radius: 6px;
-            background-color: #2a2a2a;
+        .checkbox-group input[type="checkbox"] {
+            margin-right: 10px;
+            vertical-align: middle;
+            /* Resetando estilos padrão do input */
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            width: 16px;
+            height: 16px;
             border: 1px solid #444;
-            transition: all 0.3s ease;
-        }
-
-        .custom-multiselect select[multiple]:focus {
-            border-color: #888;
-            box-shadow: 0 0 0 2px rgba(150, 150, 150, 0.2);
-        }
-
-        .custom-multiselect option {
-            padding: 8px 12px;
-            border-bottom: 1px solid #3a3a3a;
-            transition: background-color 0.2s;
-        }
-
-        .custom-multiselect option:hover {
-            background-color: #444 !important;
-        }
-
-        .custom-multiselect option:checked {
-            background-color: #555 !important;
-            color: #fff !important;
+            border-radius: 3px;
+            background-color: #2a2a2a;
+            cursor: pointer;
             position: relative;
         }
 
-        .custom-multiselect option:checked::after {
-            content: "✓";
+        .checkbox-group input[type="checkbox"]:checked::after {
+            content: '';
             position: absolute;
-            right: 10px;
-            color: #fff;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 8px;
+            height: 8px;
+            background-color: #fff;
+            border-radius: 2px;
         }
 
         .form-text {
@@ -171,12 +174,10 @@
 </head>
 <body>
     <div class="container">
-        <!-- Logo da FURIA -->
         <img src="templates/furia.png" alt="Logo FURIA" class="furia-logo">
 
         <h1>Formulário FURIA</h1>
 
-        <!-- Alertas -->
         <div id="alert" class="alert"></div>
 
         <form id="formulario" method="POST">
@@ -202,29 +203,53 @@
 
             <div class="mb-3">
                 <label for="jogos_furia">Jogos da FURIA</label>
-                <small class="form-text">Segure Ctrl (Windows) ou Command (Mac) para selecionar múltiplos itens</small>
-                <div class="custom-multiselect">
-                    <select multiple class="form-control" id="jogos_furia" name="jogos_furia[]" required>
-                        <option value="CS:GO">CS:GO</option>
-                        <option value="Valorant">Valorant</option>
-                        <option value="League of Legends">League of Legends</option>
-                        <option value="Rocket League">Rocket League</option>
-                        <option value="Outro">Outro</option>
-                    </select>
+                <div class="checkbox-group">
+                    <label>
+                        <input type="checkbox" name="jogos_furia" value="CS:GO">
+                        CS:GO
+                    </label>
+                    <label>
+                        <input type="checkbox" name="jogos_furia" value="Valorant">
+                        Valorant
+                    </label>
+                    <label>
+                        <input type="checkbox" name="jogos_furia" value="League of Legends">
+                        League of Legends
+                    </label>
+                    <label>
+                        <input type="checkbox" name="jogos_furia" value="Rocket League">
+                        Rocket League
+                    </label>
+                    <label>
+                        <input type="checkbox" name="jogos_furia" value="Outro">
+                        Outro
+                    </label>
                 </div>
             </div>
 
             <div class="mb-3">
                 <label for="produtos_furia">Produtos FURIA</label>
-                <div class="custom-multiselect">
-                    <small class="form-text">Segure Ctrl (Windows) ou Command (Mac) para selecionar múltiplos itens</small>
-                    <select multiple class="form-control" id="produtos_furia" name="produtos_furia[]" required>
-                        <option value="Camisa">Camisa</option>
-                        <option value="Boné">Boné</option>
-                        <option value="Mousepad">Mousepad</option>
-                        <option value="Moletons">Moletons</option>
-                        <option value="Outro">Outro</option>
-                    </select>
+                <div class="checkbox-group">
+                    <label>
+                        <input type="checkbox" name="produtos_furia" value="Camisa">
+                        Camisa
+                    </label>
+                    <label>
+                        <input type="checkbox" name="produtos_furia" value="Boné">
+                        Boné
+                    </label>
+                    <label>
+                        <input type="checkbox" name="produtos_furia" value="Mousepad">
+                        Mousepad
+                    </label>
+                    <label>
+                        <input type="checkbox" name="produtos_furia" value="Moletons">
+                        Moletons
+                    </label>
+                    <label>
+                        <input type="checkbox" name="produtos_furia" value="Outro">
+                        Outro
+                    </label>
                 </div>
             </div>
 
@@ -243,84 +268,91 @@
     </div>
 
     <script>
-    // Função para formatar o CPF enquanto digita
-    document.getElementById('cpf').addEventListener('input', function (e) {
-        let cpf = e.target.value;
-        cpf = cpf.replace(/\D/g, ''); // remove caracteres não numéricos
-        cpf = cpf.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4'); // formata o CPF
-        e.target.value = cpf;
-    });
+        // Função para formatar o CPF enquanto digita
+        document.getElementById('cpf').addEventListener('input', function (e) {
+            let cpf = e.target.value;
+            cpf = cpf.replace(/\D/g, ''); // remove caracteres não numéricos
+            cpf = cpf.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4'); // formata o CPF
+            e.target.value = cpf;
+        });
 
-    // Função principal ao enviar o formulário
-    document.getElementById('formulario').addEventListener('submit', function (e) {
-        e.preventDefault(); // Impede o envio padrão
+        // Função principal ao enviar o formulário
+        document.getElementById('formulario').addEventListener('submit', function (e) {
+            e.preventDefault(); // Impede o envio padrão
 
-        // Limpa alertas anteriores
-        const alertDiv = document.getElementById('alert');
-        alertDiv.style.display = 'none';
-        let alertMessage = '';
+            // Limpa alertas anteriores
+            const alertDiv = document.getElementById('alert');
+            alertDiv.style.display = 'none';
+            let alertMessage = '';
 
-        // Pega os valores dos campos
-        const nome = document.getElementById('nome').value;
-        const cpf = document.getElementById('cpf').value;
-        const endereco = document.getElementById('endereco').value;
-        const email = document.getElementById('email').value;
-        const jogosFuria = Array.from(document.getElementById('jogos_furia').selectedOptions).map(option => option.value);
-        const produtosFuria = Array.from(document.getElementById('produtos_furia').selectedOptions).map(option => option.value);
-        const eventosFuria = document.getElementById('eventos_furia').value;
+            // Pega os valores dos campos
+            const nome = document.getElementById('nome').value;
+            const cpf = document.getElementById('cpf').value;
+            const endereco = document.getElementById('endereco').value;
+            const email = document.getElementById('email').value;
 
-        // Validações
-        const cpfRegex = /^\d{3}\.\d{3}\.\d{3}-\d{2}$/;
-        if (!cpf.match(cpfRegex)) {
-            alertMessage += 'CPF inválido! Verifique o formato (000.000.000-00).\n';
-        }
+            // Coletar valores dos checkboxes de jogos
+            const jogosFuria = Array.from(document.querySelectorAll('input[name="jogos_furia"]:checked'))
+                .map(checkbox => checkbox.value);
 
-        if (!nome || !endereco || !email || !eventosFuria) {
-            alertMessage += 'Todos os campos devem ser preenchidos!\n';
-        }
+            // Coletar valores dos checkboxes de produtos
+            const produtosFuria = Array.from(document.querySelectorAll('input[name="produtos_furia"]:checked'))
+                .map(checkbox => checkbox.value);
 
-        if (jogosFuria.length === 0) {
-            alertMessage += 'Selecione pelo menos um jogo!\n';
-        }
+            const eventosFuria = document.getElementById('eventos_furia').value;
 
-        if (produtosFuria.length === 0) {
-            alertMessage += 'Selecione pelo menos um produto!\n';
-        }
+            // Validações
+            const cpfRegex = /^\d{3}\.\d{3}\.\d{3}-\d{2}$/;
+            if (!cpf.match(cpfRegex)) {
+                alertMessage += 'CPF inválido! Verifique o formato (000.000.000-00).\n';
+            }
 
-        // Se tiver erro, mostra alerta
-        if (alertMessage) {
-            alertDiv.style.display = 'block';
-            alertDiv.textContent = alertMessage.trim();
-        } else {
-            // Se tudo OK, monta objeto para enviar
-            const dados = {
-                nome: nome,
-                cpf: cpf,
-                endereco: endereco,
-                email: email,
-                jogos_furia: jogosFuria,
-                produtos_furia: produtosFuria,
-                eventos_furia: eventosFuria,
-            };
+            if (!nome || !endereco || !email || !eventosFuria) {
+                alertMessage += 'Todos os campos devem ser preenchidos!\n';
+            }
 
-            // Envia usando fetch()
-            fetch('/submit', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(dados),
-            })
-            .then(response => response.text())
-            .then(data => {
-                alert('Formulário enviado com sucesso!');
-                console.log('Resposta do servidor:', data);
-            })
-            .catch((error) => {
-                console.error('Erro ao enviar:', error);
-            });
-        }
-    });
-</script>
+            if (jogosFuria.length === 0) {
+                alertMessage += 'Selecione pelo menos um jogo!\n';
+            }
+
+            if (produtosFuria.length === 0) {
+                alertMessage += 'Selecione pelo menos um produto!\n';
+            }
+
+            // Se tiver erro, mostra alerta
+            if (alertMessage) {
+                alertDiv.style.display = 'block';
+                alertDiv.textContent = alertMessage.trim();
+            } else {
+                // Se tudo OK, monta objeto para enviar
+                const dados = {
+                    nome: nome,
+                    cpf: cpf,
+                    endereco: endereco,
+                    email: email,
+                    jogos_furia: jogosFuria,
+                    produtos_furia: produtosFuria,
+                    eventos_furia: eventosFuria,
+                };
+
+                // Envia usando fetch()
+                fetch('/submit', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(dados),
+                })
+                .then(response => response.text())
+                .then(data => {
+                    alert('Formulário enviado com sucesso!');
+                    console.log('Resposta do servidor:', data);
+                })
+                .catch((error) => {
+                    console.error('Erro ao enviar:', error);
+                });
+            }
+        });
+    </script>
 </body>
 </html>
