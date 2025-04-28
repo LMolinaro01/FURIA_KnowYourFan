@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="script.js" async></script>
+    <title>Formulário FURIA</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" type="text/css" href="style.css" media="screen" />
+</head>
+  <body>
+    <div class="container">
+      <img src="templates/furia.png" alt="Logo FURIA" class="furia-logo" />
+
+      <h1>Formulário FURIA</h1>
+
+      <div id="alert" class="alert"></div>
+
+      <form id="formulario" method="POST">
+        <div class="mb-3">
+          <label for="nome">Nome</label>
+          <input
+            type="text"
+            class="form-control"
+            id="nome"
+            name="nome"
+            required
+          />
+        </div>
+
+        <div class="mb-3">
+          <label for="cpf">CPF</label>
+          <input
+            type="text"
+            class="form-control"
+            id="cpf"
+            name="cpf"
+            required
+          />
+        </div>
+
+        <div class="mb-3">
+          <label for="endereco">Estado</label>
+          <input
+            type="text"
+            class="form-control"
+            id="endereco"
+            name="endereco"
+            required
+          />
+        </div>
+
+        <div class="mb-3">
+          <label for="email">Email</label>
+          <input
+            type="email"
+            class="form-control"
+            id="email"
+            name="email"
+            required
+          />
+        </div>
+
+        <div class="mb-3">
+          <label for="jogos_furia">Jogos da FURIA</label>
+          <div class="checkbox-group">
+            <label>
+              <input type="checkbox" name="jogos_furia" value="CS:GO" />
+              CS:GO
+            </label>
+            <label>
+              <input type="checkbox" name="jogos_furia" value="Valorant" />
+              Valorant
+            </label>
+            <label>
+              <input
+                type="checkbox"
+                name="jogos_furia"
+                value="League of Legends"
+              />
+              League of Legends
+            </label>
+            <label>
+              <input type="checkbox" name="jogos_furia" value="Rocket League" />
+              Rocket League
+            </label>
+            <label>
+              <input type="checkbox" name="jogos_furia" value="Outro" />
+              Outro
+            </label>
+          </div>
+        </div>
+
+        <div class="mb-3">
+            <fieldset class="checkbox-group" id="produtos_furia">
+              <legend class="form-text">Produtos FURIA</legend>
+          
+              <!-- Categoria: Acessórios -->
+              <fieldset class="checkbox-group">
+                <legend class="form-text">Acessórios</legend>
+                <label><input type="checkbox" name="produtos_furia" value="Bonés" /> Bonés</label>
+                <label><input type="checkbox" name="produtos_furia" value="Buckets" /> Buckets</label>
+                <label><input type="checkbox" name="produtos_furia" value="Meias" /> Meias</label>
+                <label><input type="checkbox" name="produtos_furia" value="Mochilas" /> Mochilas</label>
+              </fieldset>
+          
+              <!-- Categoria: Vestuário -->
+              <fieldset class="checkbox-group">
+                <legend class="form-text">Vestuário</legend>
+                <label><input type="checkbox" name="produtos_furia" value="Camisetas" /> Camisetas</label>
+                <label><input type="checkbox" name="produtos_furia" value="Croppeds" /> Croppeds</label>
+                <label><input type="checkbox" name="produtos_furia" value="Jaquetas" /> Jaquetas</label>
+                <label><input type="checkbox" name="produtos_furia" value="Moletons" /> Moletons</label>
+                <label><input type="checkbox" name="produtos_furia" value="Calças" /> Calças</label>
+                <label><input type="checkbox" name="produtos_furia" value="Shorts" /> Shorts</label>
+              </fieldset>
+          
+              <!-- Categoria: Collabs -->
+              <fieldset class="checkbox-group">
+                <legend class="form-text">Collabs</legend>
+                <label><input type="checkbox" name="produtos_furia" value="Adidas" /> Adidas</label>
+                <label><input type="checkbox" name="produtos_furia" value="Batman" /> Batman</label>
+                <label><input type="checkbox" name="produtos_furia" value="Champion" /> Champion</label>
+                <label><input type="checkbox" name="produtos_furia" value="My Hero Academia" /> My Hero Academia</label>
+                <label><input type="checkbox" name="produtos_furia" value="New Era" /> New Era</label>
+                <label><input type="checkbox" name="produtos_furia" value="Zor" /> Zor</label>
+              </fieldset>
+          
+              <!-- Categoria: Coleções -->
+              <fieldset class="checkbox-group">
+                <legend class="form-text">Coleções</legend>
+                <label><input type="checkbox" name="produtos_furia" value="Classic" /> Classic</label>
+                <label><input type="checkbox" name="produtos_furia" value="Clutch" /> Clutch</label>
+                <label><input type="checkbox" name="produtos_furia" value="Furia" /> Furia</label>
+                <label><input type="checkbox" name="produtos_furia" value="Future is Black" /> Future is Black</label>
+                <label><input type="checkbox" name="produtos_furia" value="Hard To Love x Harder To Kill" /> Hard To Love x Harder To Kill</label>
+                <label><input type="checkbox" name="produtos_furia" value="Magic Panthera" /> Magic Panthera</label>
+                <label><input type="checkbox" name="produtos_furia" value="Spray It" /> Spray It</label>
+              </fieldset>
+
+              <!-- Opção Nenhum -->
+              <label>
+                <input type="checkbox" id="produto_nenhum" name="produtos_furia" value="Nenhum" />
+                Nenhum
+              </label>
+          
+            </fieldset>
+          </div>
+          
+
+        <div class="mb-3">
+          <label for="eventos_furia">Eventos</label>
+          <select
+            class="form-control"
+            id="eventos_furia"
+            name="eventos_furia"
+            required
+          >
+            <option value="Nunca participei">Nunca participei</option>
+            <option value="Eventos online">Eventos online</option>
+            <option value="Eventos presenciais">Eventos presenciais</option>
+            <option value="Ambos">Ambos</option>
+          </select>
+        </div>
+
+        <button type="submit" class="btn-custom">Salvar Dados</button>
+      </form>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+          const chkNenhum = document.getElementById('produto_nenhum');
+          const outros = Array.from(
+            document.querySelectorAll('input[name="produtos_furia"]')
+          ).filter(c => c !== chkNenhum);
+      
+          // Se marcar “Nenhum”, desmarca todos os outros
+          chkNenhum.addEventListener('change', () => {
+            if (chkNenhum.checked) {
+              outros.forEach(c => c.checked = false);
+            }
+          });
+      
+          // Se marcar qualquer outro, desmarca “Nenhum”
+          outros.forEach(c => {
+            c.addEventListener('change', () => {
+              if (c.checked) {
+                chkNenhum.checked = false;
+              }
+            });
+          });
+        });
+      </script>
+      
+
+   
+  </body>
+</html>
