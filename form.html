@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Formulário FURIA</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* Tema escuro */
+      body {
+        background-color: #121212;
+        color: #e0e0e0;
+        font-family: "Inter", sans-serif;
+        margin: 0;
+        padding: 20px;
+      }
+
+      /* quando o fieldset estiver em erro, destaque a borda */
+      .checkbox-group.error {
+        border: 1px solid #ff4d4f;
+        padding: 8px;
+      }
+      /* estilo da mensagem de erro */
+      .error-text {
+        display: block;
+        color: #ff4d4f;
+        font-size: 0.8rem;
+        margin-top: 4px;
+      }
+
+      .container {
+        background-color: #1e1e1e;
+        border-radius: 10px;
+        padding: 30px;
+        max-width: 500px;
+        margin: 0 auto;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      }
+
+      h1 {
+        text-align: center;
+        color: #fff;
+        font-weight: 600;
+        margin-bottom: 25px;
+        font-size: 1.8rem;
+      }
+
+      label {
+        font-size: 0.95rem;
+        color: #bbb;
+        margin-bottom: 8px;
+        display: block;
+      }
+
+      .form-control {
+        background-color: #2a2a2a;
+        border: 1px solid #444;
+        color: #fff;
+        padding: 12px;
+        font-size: 0.95rem;
+        transition: all 0.3s ease;
+        border-radius: 6px;
+        width: 100%;
+        margin-bottom: 5px;
+      }
+
+      .form-control:focus {
+        border-color: #888;
+        box-shadow: 0 0 0 2px rgba(150, 150, 150, 0.2);
+        outline: none;
+      }
+
+      .form-control:hover {
+        border-color: #666;
+      }
+
+      .btn-custom {
+        background-color: #fff;
+        border: 1px solid #fff;
+        color: #333;
+        font-weight: 600;
+        padding: 12px 20px;
+        transition: all 0.3s ease;
+        width: 100%;
+        max-width: 300px;
+        margin: 25px auto 0;
+        display: block;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 1rem;
+      }
+
+      .btn-custom:hover {
+        background-color: #000;
+        border-color: #ccc;
+        color: #fff;
+      }
+
+      .furia-logo {
+        display: block;
+        margin: 0 auto 25px;
+        max-width: 40%;
+      }
+
+      /* Estilo para mensagens de erro */
+      .alert {
+        display: none;
+        margin-top: 20px;
+        padding: 12px;
+        border-radius: 6px;
+        background-color: #333;
+        border: 1px solid #555;
+        color: #fff;
+      }
+
+      /* Estilo aprimorado para checkboxes */
+      .checkbox-group {
+        margin-bottom: 10px;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .checkbox-group label {
+        display: flex;
+        align-items: center;
+        margin-bottom: 5px;
+        color: #bbb;
+        padding: 8px 12px; /* Adiciona padding interno */
+        border-radius: 6px; /* Bordas arredondadas */
+        border: 1px solid #444; /* Cor da borda */
+        background-color: #2a2a2a; /* Cor de fundo */
+        margin-bottom: 5px;
+      }
+
+      .checkbox-group input[type="checkbox"] {
+        margin-right: 10px;
+        vertical-align: middle;
+        /* Resetando estilos padrão do input */
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        width: 16px;
+        height: 16px;
+        border: 1px solid #444;
+        border-radius: 3px;
+        background-color: #2a2a2a;
+        cursor: pointer;
+        position: relative;
+      }
+
+      .checkbox-group input[type="checkbox"]:checked::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 8px;
+        height: 8px;
+        background-color: #fff;
+        border-radius: 2px;
+      }
+
+      .form-text {
+        color: #777 !important;
+        font-size: 0.8rem;
+        margin-top: 5px;
+        display: block;
+        padding-bottom: 10px;
+      }
+
+      /* Estilo para select único */
+      select:not([multiple]) {
+        padding: 12px;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%23fff' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-position: right 12px center;
+        background-size: 16px;
+      }
+
+      /* Remove o estilo padrão do navegador para selects */
+      select {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      .checkbox-group input[type="checkbox"]::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 8px;
+        height: 8px;
+        border-radius: 2px;
+        background-color: #fff;
+        opacity: 0;
+      }
+
+      .checkbox-group input[type="checkbox"]:checked::after {
+        animation: fadeIn 0.15s ease-in forwards;
+      }
+
+      .form-text {
+        color: #777 !important;
+        font-size: 0.8rem;
+        margin-top: 5px;
+        display: block;
+        padding-bottom: 10px;
+      }
+      /* 1) Estilo do toast */
+      .alert {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: fixed;
+        top: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: #ffffff; /* vermelho suave */
+        color: #000000;
+        padding: 12px 20px;
+        border-radius: 6px;
+        border: 1px solid #ccc;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        font-size: 0.9rem;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.4s ease;
+        z-index: 1000;
+      }
+
+      /* 2) Classe para mostrar */
+      .alert.show {
+        opacity: 1;
+        pointer-events: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <img src="templates/furia.png" alt="Logo FURIA" class="furia-logo" />
+
+      <h1>Formulário FURIA</h1>
+
+      <div id="alert" class="alert"></div>
+
+      <form id="formulario" method="POST">
+        <div class="mb-3">
+          <label for="nome">Nome</label>
+          <input
+            type="text"
+            class="form-control"
+            id="nome"
+            name="nome"
+            required
+          />
+        </div>
+
+        <div class="mb-3">
+          <label for="cpf">CPF</label>
+          <input
+            type="text"
+            class="form-control"
+            id="cpf"
+            name="cpf"
+            required
+          />
+        </div>
+
+        <div class="mb-3">
+          <label for="endereco">Estado</label>
+          <input
+            type="text"
+            class="form-control"
+            id="endereco"
+            name="endereco"
+            required
+          />
+        </div>
+
+        <div class="mb-3">
+          <label for="email">Email</label>
+          <input
+            type="email"
+            class="form-control"
+            id="email"
+            name="email"
+            required
+          />
+        </div>
+
+        <div class="mb-3">
+          <label for="jogos_furia">Jogos da FURIA</label>
+          <div class="checkbox-group">
+            <label>
+              <input type="checkbox" name="jogos_furia" value="CS:GO" />
+              CS:GO
+            </label>
+            <label>
+              <input type="checkbox" name="jogos_furia" value="Valorant" />
+              Valorant
+            </label>
+            <label>
+              <input
+                type="checkbox"
+                name="jogos_furia"
+                value="League of Legends"
+              />
+              League of Legends
+            </label>
+            <label>
+              <input type="checkbox" name="jogos_furia" value="Rocket League" />
+              Rocket League
+            </label>
+            <label>
+              <input type="checkbox" name="jogos_furia" value="Outro" />
+              Outro
+            </label>
+          </div>
+        </div>
+
+        <div class="mb-3">
+            <fieldset class="checkbox-group" id="produtos_furia">
+              <legend class="form-text">Produtos FURIA</legend>
+          
+              <!-- Categoria: Acessórios -->
+              <fieldset class="checkbox-group">
+                <legend class="form-text">Acessórios</legend>
+                <label><input type="checkbox" name="produtos_furia" value="Bonés" /> Bonés</label>
+                <label><input type="checkbox" name="produtos_furia" value="Buckets" /> Buckets</label>
+                <label><input type="checkbox" name="produtos_furia" value="Meias" /> Meias</label>
+                <label><input type="checkbox" name="produtos_furia" value="Mochilas" /> Mochilas</label>
+              </fieldset>
+          
+              <!-- Categoria: Vestuário -->
+              <fieldset class="checkbox-group">
+                <legend class="form-text">Vestuário</legend>
+                <label><input type="checkbox" name="produtos_furia" value="Camisetas" /> Camisetas</label>
+                <label><input type="checkbox" name="produtos_furia" value="Croppeds" /> Croppeds</label>
+                <label><input type="checkbox" name="produtos_furia" value="Jaquetas" /> Jaquetas</label>
+                <label><input type="checkbox" name="produtos_furia" value="Moletons" /> Moletons</label>
+                <label><input type="checkbox" name="produtos_furia" value="Calças" /> Calças</label>
+                <label><input type="checkbox" name="produtos_furia" value="Shorts" /> Shorts</label>
+              </fieldset>
+          
+              <!-- Categoria: Collabs -->
+              <fieldset class="checkbox-group">
+                <legend class="form-text">Collabs</legend>
+                <label><input type="checkbox" name="produtos_furia" value="Adidas" /> Adidas</label>
+                <label><input type="checkbox" name="produtos_furia" value="Batman" /> Batman</label>
+                <label><input type="checkbox" name="produtos_furia" value="Champion" /> Champion</label>
+                <label><input type="checkbox" name="produtos_furia" value="My Hero Academia" /> My Hero Academia</label>
+                <label><input type="checkbox" name="produtos_furia" value="New Era" /> New Era</label>
+                <label><input type="checkbox" name="produtos_furia" value="Zor" /> Zor</label>
+              </fieldset>
+          
+              <!-- Categoria: Coleções -->
+              <fieldset class="checkbox-group">
+                <legend class="form-text">Coleções</legend>
+                <label><input type="checkbox" name="produtos_furia" value="Classic" /> Classic</label>
+                <label><input type="checkbox" name="produtos_furia" value="Clutch" /> Clutch</label>
+                <label><input type="checkbox" name="produtos_furia" value="Furia" /> Furia</label>
+                <label><input type="checkbox" name="produtos_furia" value="Future is Black" /> Future is Black</label>
+                <label><input type="checkbox" name="produtos_furia" value="Hard To Love x Harder To Kill" /> Hard To Love x Harder To Kill</label>
+                <label><input type="checkbox" name="produtos_furia" value="Magic Panthera" /> Magic Panthera</label>
+                <label><input type="checkbox" name="produtos_furia" value="Spray It" /> Spray It</label>
+              </fieldset>
+
+              <!-- Opção Nenhum -->
+              <label>
+                <input type="checkbox" id="produto_nenhum" name="produtos_furia" value="Nenhum" />
+                Nenhum
+              </label>
+          
+            </fieldset>
+          </div>
+          
+
+        <div class="mb-3">
+          <label for="eventos_furia">Eventos</label>
+          <select
+            class="form-control"
+            id="eventos_furia"
+            name="eventos_furia"
+            required
+          >
+            <option value="Nunca participei">Nunca participei</option>
+            <option value="Eventos online">Eventos online</option>
+            <option value="Eventos presenciais">Eventos presenciais</option>
+            <option value="Ambos">Ambos</option>
+          </select>
+        </div>
+
+        <button type="submit" class="btn-custom">Salvar Dados</button>
+      </form>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+          const chkNenhum = document.getElementById('produto_nenhum');
+          const outros = Array.from(
+            document.querySelectorAll('input[name="produtos_furia"]')
+          ).filter(c => c !== chkNenhum);
+      
+          // Se marcar “Nenhum”, desmarca todos os outros
+          chkNenhum.addEventListener('change', () => {
+            if (chkNenhum.checked) {
+              outros.forEach(c => c.checked = false);
+            }
+          });
+      
+          // Se marcar qualquer outro, desmarca “Nenhum”
+          outros.forEach(c => {
+            c.addEventListener('change', () => {
+              if (c.checked) {
+                chkNenhum.checked = false;
+              }
+            });
+          });
+        });
+      </script>
+      
+
+    <script>
+      // formata CPF enquanto digita
+      document.getElementById("cpf").addEventListener("input", function (e) {
+        let cpf = e.target.value.replace(/\D/g, "");
+        cpf = cpf.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, "$1.$2.$3-$4");
+        e.target.value = cpf;
+      });
+
+      function clearFieldErrors() {
+        // remove classe de erro de tudo
+        document
+          .querySelectorAll(".error")
+          .forEach((el) => el.classList.remove("error"));
+        // remove todas as mensagens
+        document.querySelectorAll(".error-text").forEach((el) => el.remove());
+      }
+
+      function setFieldError(fieldId, message) {
+        const el = document.getElementById(fieldId);
+        // marca o container (fieldset) com .error
+        el.classList.add("error");
+        // insere a mensagem abaixo do fieldset
+        const span = document.createElement("span");
+        span.className = "error-text";
+        span.textContent = message;
+        el.appendChild(span);
+      }
+
+      // valida e envia
+      document
+        .getElementById("formulario")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+          clearFieldErrors();
+
+          const nome = document.getElementById("nome").value.trim();
+          const cpf = document.getElementById("cpf").value.trim();
+          const endereco = document.getElementById("endereco").value.trim();
+          const email = document.getElementById("email").value.trim();
+          const jogosFuria = Array.from(
+            document.querySelectorAll('input[name="jogos_furia"]:checked')
+          ).map((c) => c.value);
+          const produtos = Array.from(
+            document.querySelectorAll('input[name="produtos_furia"]:checked')
+          ).map((c) => c.value);
+          const eventos = document.getElementById("eventos_furia").value;
+
+          let hasError = false;
+
+          if (!nome) {
+            setFieldError("nome", "Por favor informe seu nome.");
+            hasError = true;
+          }
+          if (!/^\d{3}\.\d{3}\.\d{3}-\d{2}$/.test(cpf)) {
+            setFieldError("cpf", "CPF inválido. Formato: 000.000.000-00");
+            hasError = true;
+          }
+          if (!endereco) {
+            setFieldError("endereco", "Por favor informe o estado.");
+            hasError = true;
+          }
+          if (!email) {
+            setFieldError("email", "Por favor informe seu e-mail.");
+            hasError = true;
+          }
+          if (jogosFuria.length === 0) {
+            setFieldError("jogos_furia", "Selecione pelo menos um jogo.");
+            hasError = true;
+          }
+          if (produtos.length === 0) {
+            setFieldError("produtos_furia", "Selecione pelo menos um produto.");
+            hasError = true;
+          }
+          if (!eventos) {
+            setFieldError("eventos_furia", "Selecione uma opção de evento.");
+            hasError = true;
+          }
+
+          function clearFieldErrors() {
+            document.querySelectorAll(".form-control.error").forEach((el) => {
+              el.classList.remove("error");
+              const msg = el.parentNode.querySelector(".error-text");
+              if (msg) msg.remove();
+            });
+          }
+
+          // marca um campo como inválido e exibe mensagem
+          function setFieldError(fieldId, message) {
+            const input = document.getElementById(fieldId);
+            input.classList.add("error");
+            const span = document.createElement("span");
+            span.className = "error-text";
+            span.style.color = "#ff4d4f";
+            span.textContent = message;
+            input.parentNode.appendChild(span);
+          }
+
+          // exibe um toast simples usando a div #alert
+          function showToast(msg) {
+            const alert = document.getElementById("alert");
+            alert.textContent = msg;
+            alert.classList.add("show");
+            setTimeout(() => alert.classList.remove("show"), 3000);
+          }
+
+          if (hasError) return;
+
+          const dados = {
+            nome,
+            cpf,
+            endereco,
+            email,
+            jogos_furia: jogosFuria,
+            produtos_furia: produtos,
+            eventos_furia: eventos,
+          };
+          fetch("http://localhost:8080/submit", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(dados),
+          })
+            .then((r) => r.json())
+            .then((resp) => {
+              showToast(resp.message);
+            })
+            .catch((err) => {
+              showToast("Erro ao enviar. Tente novamente.");
+              console.error(err);
+            });
+        });
+    </script>
+  </body>
+</html>
