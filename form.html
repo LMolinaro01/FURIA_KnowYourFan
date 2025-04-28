@@ -18,6 +18,19 @@
         padding: 20px;
       }
 
+      /* quando o fieldset estiver em erro, destaque a borda */
+      .checkbox-group.error {
+        border: 1px solid #ff4d4f;
+        padding: 8px;
+      }
+      /* estilo da mensagem de erro */
+      .error-text {
+        display: block;
+        color: #ff4d4f;
+        font-size: 0.8rem;
+        margin-top: 4px;
+      }
+
       .container {
         background-color: #1e1e1e;
         border-radius: 10px;
@@ -449,6 +462,18 @@
               Spray It</label
             >
           </fieldset>
+          <fieldset class="checkbox-group">
+            <legend class="form-text">Outro</legend>
+            <label>
+              <input
+                type="checkbox"
+                id="produto_nenhum"
+                name="produtos_furia"
+                value="Nenhum"
+              />
+              Nenhum
+            </label>
+          </fieldset>
         </div>
 
         <div class="mb-3">
@@ -471,12 +496,58 @@
     </div>
 
     <script>
+        document.addEventListener('DOMContentLoaded', () => {
+          const chkNenhum = document.getElementById('produto_nenhum');
+          const outros = Array.from(
+            document.querySelectorAll('input[name="produtos_furia"]')
+          ).filter(c => c !== chkNenhum);
+      
+          // Se marcar “Nenhum”, desmarca todos os outros
+          chkNenhum.addEventListener('change', () => {
+            if (chkNenhum.checked) {
+              outros.forEach(c => c.checked = false);
+            }
+          });
+      
+          // Se marcar qualquer outro, desmarca “Nenhum”
+          outros.forEach(c => {
+            c.addEventListener('change', () => {
+              if (c.checked) {
+                chkNenhum.checked = false;
+              }
+            });
+          });
+        });
+      </script>
+      
+
+    <script>
       // formata CPF enquanto digita
       document.getElementById("cpf").addEventListener("input", function (e) {
         let cpf = e.target.value.replace(/\D/g, "");
         cpf = cpf.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, "$1.$2.$3-$4");
         e.target.value = cpf;
       });
+
+      function clearFieldErrors() {
+        // remove classe de erro de tudo
+        document
+          .querySelectorAll(".error")
+          .forEach((el) => el.classList.remove("error"));
+        // remove todas as mensagens
+        document.querySelectorAll(".error-text").forEach((el) => el.remove());
+      }
+
+      function setFieldError(fieldId, message) {
+        const el = document.getElementById(fieldId);
+        // marca o container (fieldset) com .error
+        el.classList.add("error");
+        // insere a mensagem abaixo do fieldset
+        const span = document.createElement("span");
+        span.className = "error-text";
+        span.textContent = message;
+        el.appendChild(span);
+      }
 
       // valida e envia
       document
