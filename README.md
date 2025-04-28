@@ -1,5 +1,8 @@
 # Plano de Execução do Projeto
 
+![image](https://github.com/user-attachments/assets/e1d01a07-c9a9-47be-a0a3-675b5e744398)
+
+
 ## Coleta de Dados Básicos e de Interesses do Usuário  
 - **Formulário Inicial:** Criar um formulário em Jupyter Notebook (usando `ipywidgets` ou `Streamlit`) para capturar dados pessoais fundamentais: nome, CPF, endereço, data de nascimento, email etc. Validar formato de CPF (biblioteca `python-bcpf` ou validação via regex) e outros campos para evitar erros de digitação.  
 - **Interesses e Atividades em e-sports:** Incluir no notebook seções ou perguntas interativas sobre interesses em e-sports, times preferidos (ex: FURIA, MIBR), jogos mais acompanhados, frequência de eventos assistidos, ingressos ou periféricos adquiridos no último ano. Utilizar `pandas` para estruturar as respostas em um DataFrame. Poder-se-á simular coleta de dados de APIs públicas de eventos (por exemplo, dados de torneios CS:GO) ou pedir ao usuário que importe seu histórico (como um CSV de compras) para preencher esse perfil de maneira realista.  
