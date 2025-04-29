@@ -26,10 +26,26 @@ function setFieldError(fieldId, message) {
   el.appendChild(span);
 }
 
+function fileToBase64(file) {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onerror = () => reject(reader.error);
+    reader.onload = () => resolve(reader.result.split(",")[1]); 
+    reader.readAsDataURL(file);
+  });
+}
+
+function showToast(msg) {
+  const alert = document.getElementById("alert");
+  alert.textContent = msg;
+  alert.classList.add("show");
+  setTimeout(() => alert.classList.remove("show"), 3000);
+}
+
 // valida e envia
 document
   .getElementById("formulario")
-  .addEventListener("submit", function (e) {
+  .addEventListener("submit", async function (e) {
     e.preventDefault();
     clearFieldErrors();
 
@@ -83,6 +99,22 @@ document
       hasError = true;
     }
 
+    const rgFile     = document.getElementById("rgImagem").files[0];
+    const selfieFile = document.getElementById("selfieImagem").files[0];
+    if (!rgFile)     { setFieldError("rgImagem",     "Carregue a imagem do RG.");     hasError = true; }
+    if (!selfieFile) { setFieldError("selfieImagem", "Carregue a sua selfie.");      hasError = true; }
+
+    let rgBase64, selfieBase64;
+    try {
+      rgBase64     = await fileToBase64(rgFile);
+      selfieBase64 = await fileToBase64(selfieFile);
+    } catch (err) {
+      showToast("Falha ao ler imagens.");
+      console.error(err);
+      return;
+    }
+  
+
     function clearFieldErrors() {
       document.querySelectorAll(".form-control.error").forEach((el) => {
         el.classList.remove("error");
@@ -122,6 +154,8 @@ document
       jogos_furia: jogosFuria,
       produtos_furia: produtos,
       eventos_furia: eventos,
+      rgImagem_base64: rgBase64,
+      selfieImagem_base64: selfieBase64
     };
 
     fetch("http://localhost:8080/submit", {
