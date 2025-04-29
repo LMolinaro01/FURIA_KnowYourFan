@@ -36,7 +36,9 @@ document
     const nome = document.getElementById("nome").value.trim();
     const cpf = document.getElementById("cpf").value.trim();
     const endereco = document.getElementById("endereco").value.trim();
-    const email = document.getElementById("email").value.trim();
+    //const email = document.getElementById("email").value.trim();
+    const instagram = document.getElementById("instagram").value.trim();
+    const twitter = document.getElementById("twitter").value.trim();
     const jogosFuria = Array.from(
       document.querySelectorAll('input[name="jogos_furia"]:checked')
     ).map((c) => c.value);
@@ -59,8 +61,13 @@ document
       setFieldError("endereco", "Por favor informe o estado.");
       hasError = true;
     }
-    if (!email) {
-      setFieldError("email", "Por favor informe seu e-mail.");
+    //if (!email) {
+      //setFieldError("email", "Por favor informe seu e-mail.");
+      //hasError = true;
+    //}
+    if (!instagram && !twitter) {
+      setFieldError("instagram", "Informe o Instagram ou o Twitter.");
+      setFieldError("twitter", "Informe o Instagram ou o Twitter.");
       hasError = true;
     }
     if (jogosFuria.length === 0) {
@@ -109,11 +116,14 @@ document
       nome,
       cpf,
       endereco,
-      email,
+      //email,
+      instagram,
+      twitter,
       jogos_furia: jogosFuria,
       produtos_furia: produtos,
       eventos_furia: eventos,
     };
+
     fetch("http://localhost:8080/submit", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
