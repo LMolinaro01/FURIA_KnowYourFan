@@ -21,7 +21,7 @@
 
       <form id="formulario" method="POST">
         <div class="mb-3">
-          <label for="nome">Nome</label>
+          <label for="nome">Nome (Completo)</label>
           <input
             type="text"
             class="form-control"
@@ -30,7 +30,7 @@
             required
           />
         </div>
-
+        <br>
         <div class="mb-3">
           <label for="cpf">CPF</label>
           <input
@@ -41,9 +41,9 @@
             required
           />
         </div>
-
+        <br>
         <div class="mb-3">
-          <label for="endereco">Estado</label>
+          <label for="endereco">Estado de Nascença</label>
           <input
             type="text"
             class="form-control"
@@ -53,6 +53,35 @@
           />
         </div>
 
+        <br>
+
+        <div class="mb-3">
+          <label for="rgImagem">Imagem do RG (Frente)</label>
+          <input
+            type="file"
+            class="form-control"
+            id="rgImagem"
+            name="rgImagem"
+            accept="image/png, image/jpeg"
+            required
+          />
+        </div>
+        <br>
+        
+        <div class="mb-3">
+          <label for="selfieImagem">Selfie segurando o documento</label>
+          <input
+            type="file"
+            class="form-control"
+            id="selfieImagem"
+            name="selfieImagem"
+            accept="image/png, image/jpeg"
+            required
+          />
+        </div>
+        
+
+        <!--
         <div class="mb-3">
           <label for="email">Email</label>
           <input
@@ -62,8 +91,29 @@
             name="email"
             required
           />
+        </div> -->
+        <br>
+        <div class="mb-3">
+          
+          <label for="instagram">Instagram</label>
+          <input
+            type="text"
+            class="form-control"
+            id="instagram"
+            name="instagram"
+            placeholder="@seuusuario"
+          />
+        
+          <label for="twitter" style="margin-top: 10px;">Twitter (X)</label>
+          <input
+            type="text"
+            class="form-control"
+            id="twitter"
+            name="twitter"
+            placeholder="@seuusuario"
+          />
         </div>
-
+        <br>
         <div class="mb-3">
           <label for="jogos_furia">Jogos da FURIA</label>
           <div class="checkbox-group">
@@ -93,6 +143,7 @@
             </label>
           </div>
         </div>
+        <br>
 
         <div class="mb-3">
             <fieldset class="checkbox-group" id="produtos_furia">

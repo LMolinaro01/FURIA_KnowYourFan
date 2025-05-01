@@ -26,17 +26,35 @@ function setFieldError(fieldId, message) {
   el.appendChild(span);
 }
 
+function fileToBase64(file) {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onerror = () => reject(reader.error);
+    reader.onload = () => resolve(reader.result.split(",")[1]); 
+    reader.readAsDataURL(file);
+  });
+}
+
+function showToast(msg) {
+  const alert = document.getElementById("alert");
+  alert.textContent = msg;
+  alert.classList.add("show");
+  setTimeout(() => alert.classList.remove("show"), 3000);
+}
+
 // valida e envia
 document
   .getElementById("formulario")
-  .addEventListener("submit", function (e) {
+  .addEventListener("submit", async function (e) {
     e.preventDefault();
     clearFieldErrors();
 
     const nome = document.getElementById("nome").value.trim();
     const cpf = document.getElementById("cpf").value.trim();
     const endereco = document.getElementById("endereco").value.trim();
-    const email = document.getElementById("email").value.trim();
+    //const email = document.getElementById("email").value.trim();
+    const instagram = document.getElementById("instagram").value.trim();
+    const twitter = document.getElementById("twitter").value.trim();
     const jogosFuria = Array.from(
       document.querySelectorAll('input[name="jogos_furia"]:checked')
     ).map((c) => c.value);
@@ -59,8 +77,13 @@ document
       setFieldError("endereco", "Por favor informe o estado.");
       hasError = true;
     }
-    if (!email) {
-      setFieldError("email", "Por favor informe seu e-mail.");
+    //if (!email) {
+      //setFieldError("email", "Por favor informe seu e-mail.");
+      //hasError = true;
+    //}
+    if (!instagram && !twitter) {
+      setFieldError("instagram", "Informe o Instagram ou o Twitter.");
+      setFieldError("twitter", "Informe o Instagram ou o Twitter.");
       hasError = true;
     }
     if (jogosFuria.length === 0) {
@@ -75,6 +98,22 @@ document
       setFieldError("eventos_furia", "Selecione uma opção de evento.");
       hasError = true;
     }
+
+    const rgFile     = document.getElementById("rgImagem").files[0];
+    const selfieFile = document.getElementById("selfieImagem").files[0];
+    if (!rgFile)     { setFieldError("rgImagem",     "Carregue a imagem do RG.");     hasError = true; }
+    if (!selfieFile) { setFieldError("selfieImagem", "Carregue a sua selfie.");      hasError = true; }
+
+    let rgBase64, selfieBase64;
+    try {
+      rgBase64     = await fileToBase64(rgFile);
+      selfieBase64 = await fileToBase64(selfieFile);
+    } catch (err) {
+      showToast("Falha ao ler imagens.");
+      console.error(err);
+      return;
+    }
+  
 
     function clearFieldErrors() {
       document.querySelectorAll(".form-control.error").forEach((el) => {
@@ -109,11 +148,16 @@ document
       nome,
       cpf,
       endereco,
-      email,
+      //email,
+      instagram,
+      twitter,
       jogos_furia: jogosFuria,
       produtos_furia: produtos,
       eventos_furia: eventos,
+      rgImagem_base64: rgBase64,
+      selfieImagem_base64: selfieBase64
     };
+
     fetch("http://localhost:8080/submit", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
