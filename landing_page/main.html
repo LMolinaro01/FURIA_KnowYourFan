@@ -14,6 +14,9 @@
 
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+
   <!-- Seu CSS personalizado -->
   <link rel="stylesheet" href="style.css">
 </head>
@@ -122,8 +125,8 @@
 
   <!-- Dashboards -->
   <section id="dashboards" class="section bg-light">
-    <div class="container">
-      <h2>Dashboards Interativos</h2>
+    <div class="container text-black-bg-none">
+      <h2 class="container text-black-bg-none">Dashboards Interativos</h2>
       <div class="row">
         <div class="col-md-6 text-center">
           <img src="https://via.placeholder.com/300x200.png?text=Dashboard+Twitter" alt="Dashboard Twitter">
@@ -168,9 +171,9 @@
 
   <!-- Instalação -->
   <section id="instalacao" class="section bg-light">
-    <div class="container">
-      <h2>Manual de Instalação Local</h2>
-      <pre><code>python -m venv .venv
+    <div class="text-black-bg-none">
+      <h2 class="container text-black-bg-none">Manual de Instalação Local</h2>
+      <pre><code >python -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt</code></pre>
       <p>Instale o Tesseract OCR conforme documentação oficial para seu OS.</p>
@@ -188,21 +191,32 @@ pip install -r requirements.txt</code></pre>
     </div>
   </section>
 
-  <!-- Contato -->
-  <section id="contato" class="section bg-light text-center">
-    <div class="container">
-      <h2>Contato</h2>
-      <p>Desenvolvido por Leonardo Molinaro</p>
-      <p>Email: leonardo.molinaro@example.com</p>
-    </div>
-  </section>
+  
 
   <!-- Footer -->
-  <footer class="footer text-center">
-    <div class="container">
-      <small>&copy; 2025 FURIA – Know Your Fan. Todos os direitos reservados.</small>
+<section id="contato" class="section bg-light text-center">
+  <div class="container text-black-bg-none">
+    <h2 class="container text-black-bg-none">Contato</h2>
+    <p class="container text-black-bg-none">Desenvolvido por <i>Leonardo Molinaro</i></p>
+
+    <div class="social-icons" style="margin-top: 10px;">
+      <a href="https://www.linkedin.com/in/leonardo-molinaro-109244277/" target="_blank" class="icon-link">
+        <i class="fab fa-linkedin fa-2x"></i>
+      </a>
+      <a href="https://linktr.ee/leomolinarodev01" class="icon-link">
+        <i class="fas fa-envelope fa-2x"></i>
+      </a>
+      <a href="https://github.com/LMolinaro01" target="_blank" class="icon-link">
+        <i class="fab fa-github fa-2x"></i>
+      </a>
+      <a href="https://linktr.ee/leomolinarodev01" target="_blank" class="icon-link">
+        <i class="fas fa-link fa-2x"></i>
+      </a>
     </div>
-  </footer>
+  </div>
+</section>
+
+  
 
   <!-- Scripts JS comentados (ative quando precisar) -->
   <!--
