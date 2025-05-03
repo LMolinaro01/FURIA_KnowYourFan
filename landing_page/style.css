@@ -10,7 +10,7 @@
     --section-bg: #1e1e1e;      /* Cor de fundo das seções (um pouco mais clara que o fundo geral) */
     --text-color: #e0e0e0;      /* Cor principal do texto (claro) */
     --heading-color: #ffffff;   /* Cor dos títulos (branca) */
-    --accent-color: #39FF14;    /* Cor de destaque neon (verde) */
+    --accent-color: #ffffff;   /* Cor de destaque neon (verde) */
 }
 
 /* Importação de fontes web */
@@ -192,7 +192,7 @@ img:hover {
 
 /* -------- Imagens Placeholder -------- */
 /* Adicione a classe `.img-placeholder` em <img> no HTML para usar este placeholder temático */
-/*
+
 .img-placeholder {
     background-image: url('https://via.placeholder.com/300x200.png?text=FURIA+Tech');
     background-size: cover;
@@ -200,4 +200,27 @@ img:hover {
     width: 250px;
     height: 150px;
 }
-*/
+
+/* Botão “Ver no GitHub” com borda branca */
+.btn-hero {
+    color: #ffffff;
+    border: 2px solid #ffffff;
+    background: transparent;
+    padding: 0.5rem 1rem;
+    font-weight: 600;
+    transition: background 0.3s, color 0.3s;
+    font-size: 2rem;
+  }
+  
+  .btn-hero:hover {
+    background-color: #ffffff;
+    color: var(--bg-color);
+  }
+
+  .hero h1 {
+    font-size: 4rem;      /* antes: ~2.5rem */
+    line-height: 1.2;
+  }
+  .hero p {
+    font-size: 2rem;    /* antes: ~1.25rem */
+  }
