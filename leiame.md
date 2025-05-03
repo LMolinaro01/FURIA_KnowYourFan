@@ -48,10 +48,20 @@ Isso aponta para o executável do Tesseract, permitindo usar OCR em Português n
 
 ## Explicação Técnica de Cada Módulo
 
-* **Coleta de Dados e Interesses:** Em *main.ipynb*, um formulário interativo (via `ipywidgets` ou `streamlit`) captura dados pessoais do usuário (nome, CPF, data de nascimento, e-mail) e informações de interesse em e-sports (jogos favoritos, time preferido, frequência em eventos, compras de produtos). Os campos são validados em tempo real (por exemplo, usando `python-bcpf` ou expressões regulares para CPF) e armazenados em um `DataFrame` do Pandas. Se o usuário fizer upload de histórico de compras (CSV/Excel), usamos `pandas`/`openpyxl` para ler o arquivo e filtrar itens relevantes. Esses dados iniciais formam o perfil básico do usuário.
+* **Coleta de Dados e Interesses:** Em *Análise_Individual.ipynb*, um formulário interativo (via `ipywidgets` ou `streamlit`) captura dados pessoais do usuário (nome, CPF, data de nascimento, e-mail) e informações de interesse em e-sports (jogos favoritos, time preferido, frequência em eventos, compras de produtos). Os campos são validados em tempo real (por exemplo, usando `python-bcpf` ou expressões regulares para CPF) e armazenados em um `DataFrame` do Pandas.
+
+![screencapture-file-C-Users-leomo-OneDrive-Desktop-FURA-KnowYourFan-Form-form-html-2025-05-03-17_31_47](https://github.com/user-attachments/assets/1c199e99-2610-442f-ba31-2f21fc286c32)
+
+  
 * **Validação de Identidade (OCR e Reconhecimento Facial):** Em *Analise\_Individual.ipynb*, o sistema processa o **RG** e a **selfie** enviados. Primeiro, a imagem do RG é criptografada e salva (usando `cryptography.Fernet`). Depois é desencriptada e pré-processada (converter para escala de cinza, ajuste de contraste e binarização) para facilitar a leitura. Em seguida, aplicamos `pytesseract` (Tesseract OCR) para extrair texto do documento (nome completo, CPF). Esses dados extraídos são comparados com as informações fornecidas no cadastro. Paralelamente, usamos a biblioteca `face_recognition` (baseada em redes neurais) para detectar rostos na selfie e na foto do RG. Cada rosto é convertido em um vetor de características e calculamos a distância entre eles para verificar se representam a mesma pessoa. O notebook exibe, como saída, indicadores de “válido” ou “inválido” para o usuário, apontando qualquer inconsistência (por exemplo, CPF divergente ou rosto diferente).
+
+  
 * **Integração Simulada com Redes Sociais e Enriquecimento de Dados:** Em *Análise\_Geral.ipynb*, o foco é enriquecer o perfil com dados públicos. Utilizamos a API do Twitter com `tweepy` para buscar tweets relacionados à FURIA e seus jogadores, e a API do YouTube (`google-api-python-client`) para coletar comentários de vídeos de e-sports. Para o Reddit, usamos `requests` para fazer uma consulta JSON nos subreddits de e-sports. Todos esses dados (tweets, comentários, posts) são salvos em arquivos JSON e convertidos em DataFrames. Em seguida, filtramos e agregamos informações relevantes: contamos menções por usuário, hashtags mais frequentes, volume diário de posts, etc. Esses dados simulados ou coletados compõem o histórico social do usuário, que é combinado ao seu perfil inicial.
+
+  
 * **Processamento de Linguagem Natural e Visualizações:** Após coletar os textos das redes sociais, aplicamos técnicas de PLN para extrair insights. Usamos bibliotecas como `transformers` (ex.: modelo BERT) ou `spaCy` para análise de sentimento e tópicos em comentários e posts. Por exemplo, medimos a polaridade dos tweets do usuário e extraímos palavras-chave mais citadas. Os resultados são então apresentados graficamente com `matplotlib` e `seaborn`: criamos histogramas de sentimento, nuvens de palavras para termos frequentes, gráficos de barras comparando interesse em diferentes jogos, etc. Essas visualizações permitem comparar os interesses declarados no formulário com o que é efetivamente discutido nas redes sociais, evidenciando padrões no perfil do fã.
+
+  
 
 ## Planejamento e Arquitetura do Projeto
 
