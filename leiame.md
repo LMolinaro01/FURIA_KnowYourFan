@@ -61,10 +61,33 @@ Isso aponta para o executável do Tesseract, permitindo usar OCR em Português n
   
 * **Integração Simulada com Redes Sociais e Enriquecimento de Dados:** Em *Análise\_Geral.ipynb*, o foco é enriquecer o perfil com dados públicos. Utilizamos a API do Twitter com `tweepy` para buscar tweets relacionados à FURIA e seus jogadores, e a API do YouTube (`google-api-python-client`) para coletar comentários de vídeos de e-sports. Para o Reddit, usamos `requests` para fazer uma consulta JSON nos subreddits de e-sports. Todos esses dados (tweets, comentários, posts) são salvos em arquivos JSON e convertidos em DataFrames. Em seguida, filtramos e agregamos informações relevantes: contamos menções por usuário, hashtags mais frequentes, volume diário de posts, etc. Esses dados simulados ou coletados compõem o histórico social do usuário, que é combinado ao seu perfil inicial.
 
+![image](https://github.com/user-attachments/assets/00e02310-dff0-49e2-88c0-d1a2c7e1fe18)
+
   
 * **Processamento de Linguagem Natural e Visualizações:** Após coletar os textos das redes sociais, aplicamos técnicas de PLN para extrair insights. Usamos bibliotecas como `transformers` (ex.: modelo BERT) ou `spaCy` para análise de sentimento e tópicos em comentários e posts. Por exemplo, medimos a polaridade dos tweets do usuário e extraímos palavras-chave mais citadas. Os resultados são então apresentados graficamente com `matplotlib` e `seaborn`: criamos histogramas de sentimento, nuvens de palavras para termos frequentes, gráficos de barras comparando interesse em diferentes jogos, etc. Essas visualizações permitem comparar os interesses declarados no formulário com o que é efetivamente discutido nas redes sociais, evidenciando padrões no perfil do fã.
 
-  
+- *Análise Geral*: Twitter
+
+![image](https://github.com/user-attachments/assets/923c92f2-752e-4fd8-9db9-d7d6d65cfc4c)
+
+![image](https://github.com/user-attachments/assets/42d6a73f-d844-4dbd-b936-02feb7c7f3b3)
+
+- *Análise Geral*: Reddit
+
+![image](https://github.com/user-attachments/assets/c89eb745-eea0-4465-86d0-d37748e5e7da)
+
+![image](https://github.com/user-attachments/assets/bd2406f2-8ac2-466d-9cc7-11459e878739)
+
+- *Análise Geral*: Youtube
+
+![image](https://github.com/user-attachments/assets/0def4697-4fe8-40a9-a0d2-03a1429a7e14)
+
+![image](https://github.com/user-attachments/assets/eb65d64f-a87b-44cc-85fb-3be5fc1cba92)
+
+- *Análise Individual*: Twitter
+
+![image](https://github.com/user-attachments/assets/e64e1647-6c1d-495e-b17b-b07e2110d82c)
+
 
 ## Planejamento e Arquitetura do Projeto
 
