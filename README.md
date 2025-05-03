@@ -3,36 +3,16 @@
 ## Sumário
 
 - [Manual de Instalação Local](#manual-de-instalação-local)  
-  - Criação de ambiente virtual  
-  - Instalação de dependências  
-  - Instalação do Tesseract OCR
 
 - [Obtenção de Chaves de API](#obtenção-de-chaves-de-api)  
-  - Twitter (X Developer Platform)  
-  - YouTube (Google Cloud Console)  
-  - Exemplo de arquivo `.env`
 
 - [Manual de Uso dos Notebooks](#manual-de-uso-dos-notebooks)  
-  - Executar `Análise_Geral.ipynb`  
-  - Executar `Analise_Individual.ipynb`  
-    - Upload de RG e selfie  
-    - Validação OCR e reconhecimento facial
 
 - [Explicação Técnica de Cada Módulo](#explicação-técnica-de-cada-módulo)  
-  - **Coleta de Dados e Interesses**  
-  - **Validação de Identidade (OCR e Reconhecimento Facial)**  
-  - **Integração Simulada com Redes Sociais e Enriquecimento de Dados**  
-  - **Processamento de Linguagem Natural e Visualizações**
 
 - [Dashboards Interativos com Dados Sociais](#dashboards-interativos-com-dados-sociais)  
-  - Análise de Sentimentos (BERT)  
-  - Perfil e indicadores de fã  
-  - Identidade visual e tema escuro
 
 - [Planejamento e Arquitetura do Projeto](#planejamento-e-arquitetura-do-projeto)  
-  - Workflow Geral  
-  - Arquitetura Técnica e IA  
-  - Esboço Manual no Quadro Branco
 
 - [Conclusão](#conclusão)  
 
@@ -84,9 +64,13 @@ Isso aponta para o executável do Tesseract, permitindo usar OCR em Português n
 
 Claro! Abaixo explico **como obter chaves de API do Twitter (via X Developer Platform)** e **do YouTube (via Google Cloud Console)** para usar no seu projeto.
 
----
 
-## 🔑 Como Obter Chave da API do Twitter (X)
+
+#obtenção-de-chaves-de-api
+
+## Obtenção de Chaves de API
+
+### 🔑 Como Obter Chave da API do Twitter (X)
 
 1. **Acesse o Portal de Desenvolvedores:**
 
@@ -119,7 +103,7 @@ Claro! Abaixo explico **como obter chaves de API do Twitter (via X Developer Pla
 
 ---
 
-## 📺 Como Obter Chave da API do YouTube (Google)
+### 📺 Como Obter Chave da API do YouTube (Google)
 
 1. **Acesse o Console do Google Cloud:**
 
@@ -162,12 +146,6 @@ load_dotenv()
 TWITTER_BEARER = os.getenv("TWITTER_BEARER_TOKEN")
 YOUTUBE_API_KEY = os.getenv("YOUTUBE_API_KEY")
 ```
-
----
-
-Deseja que eu gere um `.env` de exemplo para você colar direto no projeto?
-
-## Explicação Técnica de Cada Módulo
 
 * **Coleta de Dados e Interesses:** Em *Análise_Individual.ipynb*, um formulário interativo (via `ipywidgets` ou `streamlit`) captura dados pessoais do usuário (nome, CPF, data de nascimento, e-mail) e informações de interesse em e-sports (jogos favoritos, time preferido, frequência em eventos, compras de produtos). Os campos são validados em tempo real (por exemplo, usando `python-bcpf` ou expressões regulares para CPF) e armazenados em um `DataFrame` do Pandas.
 
