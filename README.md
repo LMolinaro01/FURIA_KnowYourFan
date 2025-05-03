@@ -16,6 +16,30 @@
 
 - [Conclusão](#conclusão)
 
+## Tecnologias Utilizadas
+
+- **Linguagem e Ambiente**  
+  Python 3.8+ com ambiente virtual (`venv`)  
+
+- **Front‑end e Interface**  
+  HTML5, CSS3, JavaScript, `ipywidgets` / `streamlit`, `customtkinter`  
+
+- **Coleta e Processamento de Dados**  
+  `pandas`, `numpy`, `requests`, `tweepy`, `praw`, `google‑api‑python‑client`, `python‑dotenv`  
+
+- **OCR e Criptografia**  
+  `pytesseract` (Tesseract OCR), `cryptography.Fernet`, `opencv-python`  
+
+- **Reconhecimento Facial**  
+  `face_recognition`  
+
+- **Processamento de Linguagem Natural**  
+  `transformers` (BERT), `spaCy`, `python‑bcpf`  
+
+- **Visualização e Dashboards**  
+  `dash`, `plotly.express`, `plotly.graph_objects`, `matplotlib`, `seaborn`  
+
+
 ## Explicação Técnica de Cada Módulo
 
 * **Coleta de Dados e Interesses:** Em *Análise_Individual.ipynb*, um formulário interativo (via `ipywidgets` ou `streamlit`) captura dados pessoais do usuário (nome, CPF, data de nascimento, e-mail) e informações de interesse em e-sports (jogos favoritos, time preferido, frequência em eventos, compras de produtos). Os campos são validados em tempo real (por exemplo, usando `python-bcpf` ou expressões regulares para CPF) e armazenados em um `DataFrame` do Pandas.
