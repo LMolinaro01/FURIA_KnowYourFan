@@ -285,3 +285,27 @@ a:hover {
     color: #5d5d5e; /* Cor exemplo (LinkedIn). Pode mudar conforme o ícone */
   }
   
+  #sumario ul li {
+    opacity: 0;
+    animation: fadeInItem 0.5s ease-in forwards;
+  }
+  #sumario ul li:nth-child(1) { animation-delay: 0.1s; }
+  #sumario ul li:nth-child(2) { animation-delay: 0.2s; }
+  #sumario ul li:nth-child(3) { animation-delay: 0.3s; }
+  #sumario ul li:nth-child(4) { animation-delay: 0.4s; }
+  #sumario ul li:nth-child(5) { animation-delay: 0.5s; }
+  
+  @keyframes fadeInItem {
+    to { opacity: 1; }
+  }
+
+/* Subtil hover nos links do sumário */
+#sumario ul li a {
+    display: inline-block;
+    transition: transform 0.2s ease, color 0.2s ease;
+  }
+  #sumario ul li a:hover {
+    transform: translateX(2px) scale(1.02);
+    color: #6f7a7a;           /* tom suave de neon */
+  }
+  
