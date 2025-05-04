@@ -1,0 +1,311 @@
+/* =========================
+   Arquivo: style.css
+   Tema: FURIA – Know Your Fan
+   Estilo moderno e escuro com destaques neon
+   ========================= */
+
+/* -------- Variáveis de cores e fontes -------- */
+:root {
+    --bg-color: #121212;        /* Cor de fundo geral (escuro) */
+    --section-bg: #1e1e1e;      /* Cor de fundo das seções (um pouco mais clara que o fundo geral) */
+    --text-color: #e0e0e0;      /* Cor principal do texto (claro) */
+    --heading-color: #ffffff;   /* Cor dos títulos (branca) */
+    --accent-color: #ffffff;   /* Cor de destaque neon (verde) */
+}
+
+/* Importação de fontes web */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&display=swap');
+
+/* -------- Estilos globais -------- */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 70px 0 0 0; /* Espaço superior para navbar fixa */
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+}
+
+/* Links gerais */
+a {
+    color: var(--accent-color);
+    text-decoration: none;
+}
+a:hover {
+    color: #ffffff;
+    text-decoration: underline;
+}
+
+/* -------- Navbar -------- */
+.navbar {
+    background-color: var(--section-bg) !important; /* Forçar fundo escuro no navbar */
+}
+.navbar .navbar-brand {
+    font-weight: 700;
+    color: var(--accent-color);
+}
+.navbar .navbar-brand:hover {
+    color: #ffffff;
+}
+.navbar .nav-link {
+    color: var(--text-color);
+    margin: 0 0.5rem;
+}
+.navbar .nav-link:hover {
+    color: var(--accent-color);
+}
+
+/* -------- Hero Section -------- */
+.hero {
+    text-align: center;
+}
+.hero h1 {
+    color: var(--heading-color);
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    text-shadow: 0 0 10px var(--accent-color);
+}
+.hero p.lead {
+    color: var(--accent-color);
+    font-size: 1.25rem;
+    margin-bottom: 1.5rem;
+}
+.hero .btn-dark {
+    background-color: transparent;
+    border: 2px solid var(--accent-color);
+    color: var(--accent-color);
+}
+.hero .btn-dark:hover {
+    background-color: var(--accent-color);
+    color: var(--bg-color);
+}
+
+/* -------- Seções Gerais -------- */
+.section {
+    background-color: var(--section-bg);
+    padding: 60px 15px;
+}
+.section.bg-light {
+    background-color: var(--bg-color);  /* Torna fundo igual à cor de fundo geral */
+}
+
+/* Títulos de Seção (h2) */
+.section h2 {
+    color: var(--heading-color);
+    font-size: 2rem;
+    margin-bottom: 0.5em;
+    position: relative;
+    display: inline-block;
+    padding-bottom: 0.3em;
+}
+.section h2::after {
+    content: "";
+    display: block;
+    width: 50px;
+    height: 4px;
+    background-color: var(--accent-color);
+    margin-top: 5px;
+}
+
+/* Subtítulos (h4, etc) */
+.section h4 {
+    color: var(--heading-color);
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+    font-size: 1.25rem;
+}
+
+/* Parágrafos */
+.section p {
+    margin-bottom: 1rem;
+    color: var(--text-color);
+}
+
+/* Listas */
+.section ul {
+    list-style: disc;
+    margin-left: 1.5rem;
+    margin-bottom: 1rem;
+}
+.section ul li {
+    margin-bottom: 0.5rem;
+}
+.section ul li::marker {
+    color: var(--accent-color);
+}
+
+/* Estilo de bloco de código */
+pre {
+    background-color: #272727;
+    color: #f8f8f2;
+    padding: 1rem;
+    border-radius: 5px;
+    overflow-x: auto;
+    font-family: 'Inconsolata', monospace;
+    margin-bottom: 1rem;
+}
+code {
+    font-family: 'Inconsolata', monospace;
+}
+
+/* -------- Imagens e Efeitos -------- */
+img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+    display: block;
+    margin: 0 auto 0.5rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 10px var(--accent-color), 0 0 15px var(--accent-color);
+}
+
+/* Legenda das imagens */
+.img-caption {
+    font-size: 0.9rem;
+    color: #b0b0b0;
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    font-style: italic;
+}
+
+/* -------- Footer -------- */
+.footer {
+    background-color: var(--section-bg);
+    color: #777777;
+    padding: 1rem 0;
+    margin-top: 2rem;
+}
+.footer small {
+    color: #777777;
+}
+
+.uniform-img {
+    width: 100%;
+    height: 180px;       /* ajuste a altura conforme precisar */
+    object-fit: contain;  /* preserva proporção sem distorcer */
+  }
+  /* legendas centralizadas e em itálico */
+  .fig-caption {
+    margin-top: .5rem;
+    font-style: italic;
+  }
+
+/* -------- Imagens Placeholder -------- */
+/* Adicione a classe `.img-placeholder` em <img> no HTML para usar este placeholder temático */
+
+.img-placeholder {
+    background-image: url('https://via.placeholder.com/300x200.png?text=FURIA+Tech');
+    background-size: cover;
+    background-position: center;
+    width: 250px;
+    height: 150px;
+}
+
+
+
+/* Botão “Ver no GitHub” com borda branca */
+.btn-hero {
+    color: #ffffff;
+    border: 2px solid #ffffff;
+    background: transparent;
+    padding: 0.5rem 1rem;
+    font-weight: 600;
+    transition: background 0.3s, color 0.3s;
+    font-size: 2rem;
+  }
+  
+  .btn-hero:hover {
+    background-color: #ffffff;
+    color: var(--bg-color);
+  }
+
+  .hero h1 {
+    font-size: 4rem;      /* antes: ~2.5rem */
+    line-height: 1.2;
+  }
+  .hero p {
+    font-size: 2rem;    /* antes: ~1.25rem */
+  }
+
+  a,
+a:link,
+a:visited,
+a:hover,
+a:active {
+  text-decoration: none !important;
+}
+
+/* Ainda mantém o efeito de cor no hover (se quiser) */
+a:hover {
+  color: var(--accent-color);
+  /* text-decoration: none;  já garantido acima */
+}
+
+.no-glow:hover {
+    transform: none !important;
+    box-shadow: none !important;
+  }
+
+  body {
+    font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-weight: 600; /* ou 700 se quiser mais bold */
+  }
+  
+  .text-black-bg-none {
+    color: black !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    
+  }
+  
+  .white-bg-black-text {
+    background-color: white;
+    color: black;
+  }
+
+  .icon-link {
+    margin: 0 10px;
+    color: inherit;
+    transition: transform 0.3s ease, color 0.3s ease;
+    display: inline-block;
+  }
+  
+  .icon-link:hover {
+    transform: scale(1.2) translateY(-3px);
+    color: #5d5d5e; /* Cor exemplo (LinkedIn). Pode mudar conforme o ícone */
+  }
+  
+  #sumario ul li {
+    opacity: 0;
+    animation: fadeInItem 0.5s ease-in forwards;
+  }
+  #sumario ul li:nth-child(1) { animation-delay: 0.1s; }
+  #sumario ul li:nth-child(2) { animation-delay: 0.2s; }
+  #sumario ul li:nth-child(3) { animation-delay: 0.3s; }
+  #sumario ul li:nth-child(4) { animation-delay: 0.4s; }
+  #sumario ul li:nth-child(5) { animation-delay: 0.5s; }
+  
+  @keyframes fadeInItem {
+    to { opacity: 1; }
+  }
+
+/* Subtil hover nos links do sumário */
+#sumario ul li a {
+    display: inline-block;
+    transition: transform 0.2s ease, color 0.2s ease;
+  }
+  #sumario ul li a:hover {
+    transform: translateX(2px) scale(1.02);
+    color: #6f7a7a;           /* tom suave de neon */
+  }
+  
