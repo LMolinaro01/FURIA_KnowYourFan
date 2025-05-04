@@ -1,238 +1,435 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>FURIA – Know Your Fan</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>FURIA – Know Your Fan</title>
 
-  <!-- Bootstrap 5: Framework CSS para layouts responsivos -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap 5: Framework CSS para layouts responsivos -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
+    />
 
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+    />
 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
 
+    <link rel="icon" href="img/logo_furia_2.png" type="image/png" />
 
-  <!-- Seu CSS personalizado -->
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
-    <div class="container">
-      <a class="navbar-brand" href="#hero">
-        <img src="furia.png" alt="FURIA Logo" class="logo" style="height:40px;">
-      </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navMenu">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link" href="#sumario">Sumário</a></li>
-          <li class="nav-item"><a class="nav-link" href="#tecnologias">Tecnologias</a></li>
-          <li class="nav-item"><a class="nav-link" href="#modulos">Módulos</a></li>
-          <li class="nav-item"><a class="nav-link" href="#dashboards">Dashboards</a></li>
-          <li class="nav-item"><a class="nav-link" href="#arquitetura">Arquitetura</a></li>
-          <li class="nav-item"><a class="nav-link" href="#instalacao">Instalação</a></li>
-          <li class="nav-item"><a class="nav-link" href="#api">API Keys</a></li>
-          <li class="nav-item"><a class="nav-link" href="#contato">Contato</a></li>
+    <!-- Seu CSS personalizado -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="#hero">
+          <img
+            src="furia.png"
+            alt="FURIA Logo"
+            class="logo"
+            style="height: 40px"
+          />
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navMenu"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navMenu">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#sumario">Sumário</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#tecnologias">Tecnologias</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#modulos">Módulos</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#dashboards">Dashboards</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#arquitetura">Arquitetura</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#instalacao">Instalação</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#api">API Keys</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#contato">Contato</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section
+      id="hero"
+      class="hero text-center hero-highlight animate__animated animate__fadeIn"
+      data-aos="zoom-in"
+    >
+      <div class="container py-5">
+        <img
+          src="furia2.png"
+          alt="FURIA Logo Large"
+          class="mb-4 animate__animated animate__bounceIn no-glow"
+          style="max-width: 250px"
+        />
+        <h1>FURIA – Know Your Fan</h1>
+        <p>Solução de análise de dados para perfis de fãs de e-sports</p>
+        <a
+          href="https://github.com/LMolinaro01/FURIA-KnowYourFan"
+          target="_blank"
+          class="btn btn-hero"
+        >
+          <i class="bi bi-github me-2"></i>
+          Ver no GitHub
+        </a>
+      </div>
+    </section>
+
+    <!-- Sumário -->
+    <section id="sumario" class="section">
+      <div class="container">
+        <h2>Sumário</h2>
+        <ul>
+          <li><a href="#modulos">Explicação Técnica de Cada Módulo</a></li>
+          <li>
+            <a href="#dashboards">Dashboards Interativos com Dados Sociais</a>
+          </li>
+          <li>
+            <a href="#arquitetura">Planejamento e Arquitetura do Projeto</a>
+          </li>
+          <li><a href="#instalacao">Manual de Instalação Local</a></li>
+          <li><a href="#api">Obtenção de Chaves de API</a></li>
+          <li><a href="#notebooks">Manual de Uso dos Notebooks</a></li>
+          <li><a href="#conclusao">Conclusão</a></li>
         </ul>
       </div>
-    </div>
-  </nav>
+    </section>
 
- <!-- Hero Section -->
-<section id="hero" class="hero text-center hero-highlight animate__animated animate__fadeIn" data-aos="zoom-in" >
-  <div class="container py-5">
-    <img src="furia2.png"
-         alt="FURIA Logo Large"
-         class="mb-4 animate__animated animate__bounceIn no-glow"
-         style="max-width:250px;">
-    <h1>FURIA – Know Your Fan</h1>
-    <p>Solução de análise de dados para perfis de fãs de e-sports</p>
-    <a href="https://github.com/LMolinaro01/FURIA-KnowYourFan"
-       target="_blank"
-       class="btn btn-hero">
-      <i class="bi bi-github me-2"></i>
-      Ver no GitHub
-    </a>
+    <!-- Tecnologias -->
+    <section id="tecnologias" class="section bg-light">
+      <div class="container text-black-bg-none">
+        <h2 class="container text-black-bg-none">Tecnologias Utilizadas</h2>
+        <ul>
+          <li><strong>Python 3.8+</strong> (venv)</li>
+          <li>
+            <strong>Front-end:</strong> HTML5, CSS3, JavaScript, Streamlit,
+            CustomTkinter
+          </li>
+          <li>
+            <strong>Dados:</strong> pandas, numpy, requests, tweepy, praw,
+            google-api-python-client
+          </li>
+          <li>
+            <strong>OCR & Criptografia:</strong> pytesseract,
+            cryptography.Fernet, OpenCV
+          </li>
+          <li><strong>Reconhecimento Facial:</strong> face_recognition</li>
+          <li><strong>PLN:</strong> transformers (BERT), spaCy, python-bcpf</li>
+          <li>
+            <strong>Visualização:</strong> Dash, Plotly, matplotlib, seaborn
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Módulos -->
+    <section id="modulos" class="section">
+      <div class="container">
+        <h2>Módulos</h2>
+
+        <!-- Análise Individual -->
+        <h3 class="mt-4">Análise Individual</h3>
+        <div class="row">
+          <!-- Coluna esquerda: Formulário + Social -->
+          <div class="col-md-4 text-center">
+            <h4>Coleta de Dados e Interesses</h4>
+            <br>
+            <img
+              src="img/Análise Individual/formulário.png"
+              alt="Formulário Interativo"
+              class="img-fluid"
+            />
+            <div class="img-caption">Formulário via Streamlit / ipywidgets</div>
+
+            <!-- Social embaixo do formulário -->
+            <div class="mt-4">
+              <h4>Integração com Redes Sociais</h4>
+              <br>
+              <img
+                src="img/Twitter/frequencia_tweets_pessoal.png"
+                alt="Dados Sociais"
+                class="img-fluid"
+              />
+              <div class="img-caption">Twitter</div>
+            </div>
+          </div>
+
+          <!-- Coluna direita: OCR -->
+          <div class="col-md-8 text-center">
+            <h4>Validação de Identidade</h4>
+            <br>
+            <img
+              src="img/Análise Individual/ocr.png"
+              alt="OCR"
+              class="img-fluid mb-3"
+              style="max-width: 400px"
+            />
+            <br> <br>
+            <img
+              src="img/Análise Individual/face.png"
+              alt="Face Recognition"
+              class="img-fluid"
+              style="max-width: 400px"
+            />
+            <div class="img-caption">OCR + Face Recognition</div>
+          </div>
+        </div>
+
+        <!-- Análise Geral -->
+        <h3 class="mt-5">Análise Geral</h3>
+        <div class="row">
+          <!-- Coleta por API -->
+          <div class="col-md-4 text-center">
+            <h4>Coleta de Dados (Chamada API)</h4>
+            <img
+              src="img/Análise Geral/chamada_api.png"
+              alt="Chamada API"
+              class="img-fluid"
+            />
+            <div class="img-caption">Streamlit + APIs públicas</div>
+          </div>
+
+          <!-- Processamento e Visualização -->
+          <!-- Processamento e Visualização -->
+          <!-- Processamento e Visualização -->
+<div class="col-md-8 text-center">
+  <h4>Processamento de Linguagem Natural e Visualização</h4>
+  <div class="row">
+    <!-- Primeira linha -->
+    <div class="col-6 mb-3">
+      <img
+        src="img/Reddit/posts_por_mês.png"
+        alt="Posts por Mês (Reddit)"
+        class="img-fluid"
+        style="width: 90%; height: 100%;"
+      />
+    </div>
+    <div class="col-6 mb-3">
+      <img
+        src="img/Twitter/idade_contas.png"
+        alt="Idade das Contas (Twitter)"
+        class="img-fluid"
+        style="width: 100%; height: 81%;"
+      />
+    </div>
+
+    <!-- Segunda linha -->
+    <div class="col-6">
+      <img
+        src="img/Reddit/jogadores mais citados.png"
+        alt="Jogadores mais Citados (Reddit)"
+        class="img-fluid"
+        style="width: 90%; height: 81%;"
+      />
+    </div>
+    <div class="col-6">
+      <img
+        src="img/ytb/sentimento_p_canal.png"
+        alt="Sentimento por Canal (YouTube)"
+        class="img-fluid"
+        style="width: 100%;"
+      />
+    </div>
   </div>
-</section>
+  <div class="img-caption mt-2 fst-italic">
+    Extração de insights com NLP e gráficos interativos
+  </div>
+</div>
 
-  <!-- Sumário -->
-  <section id="sumario" class="section">
-    <div class="container">
-      <h2>Sumário</h2>
-      <ul>
-        <li><a href="#modulos">Explicação Técnica de Cada Módulo</a></li>
-        <li><a href="#dashboards">Dashboards Interativos com Dados Sociais</a></li>
-        <li><a href="#arquitetura">Planejamento e Arquitetura do Projeto</a></li>
-        <li><a href="#instalacao">Manual de Instalação Local</a></li>
-        <li><a href="#api">Obtenção de Chaves de API</a></li>
-        <li><a href="#notebooks">Manual de Uso dos Notebooks</a></li>
-        <li><a href="#conclusao">Conclusão</a></li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- Tecnologias -->
-  <section id="tecnologias" class="section bg-light">
-    <div class="container text-black-bg-none">
-      <h2 class="container text-black-bg-none"> Tecnologias Utilizadas</h2>
-      <ul>
-        <li><strong>Python 3.8+</strong> (venv)</li>
-        <li><strong>Front-end:</strong> HTML5, CSS3, JavaScript, Streamlit, CustomTkinter</li>
-        <li><strong>Dados:</strong> pandas, numpy, requests, tweepy, praw, google-api-python-client</li>
-        <li><strong>OCR & Criptografia:</strong> pytesseract, cryptography.Fernet, OpenCV</li>
-        <li><strong>Reconhecimento Facial:</strong> face_recognition</li>
-        <li><strong>PLN:</strong> transformers (BERT), spaCy, python-bcpf</li>
-        <li><strong>Visualização:</strong> Dash, Plotly, matplotlib, seaborn</li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- Módulos -->
-  <section id="modulos" class="section">
-    <div class="container">
-      <h2>Explicação Técnica de Cada Módulo</h2>
-      <div class="row">
-        <!-- Coleta de Dados -->
-        <div class="col-md-4 text-center">
-          <h4>Coleta de Dados e Interesses</h4>
-          <img src="https://via.placeholder.com/250x150.png?text=Formul%C3%A1rio" alt="Formulário Interativo">
-          <div class="img-caption">Formulário via Streamlit / ipywidgets</div>
-        </div>
-        <!-- OCR e Reconhecimento Facial -->
-        <div class="col-md-4 text-center">
-          <h4>Validação de Identidade</h4>
-          <img src="https://via.placeholder.com/250x150.png?text=OCR" alt="OCR">
-          <img src="https://via.placeholder.com/250x150.png?text=Reconhecimento+Facial" alt="Face Recognition">
-          <div class="img-caption">OCR + Face Recognition</div>
-        </div>
-        <!-- Integração Social -->
-        <div class="col-md-4 text-center">
-          <h4>Integração com Redes Sociais</h4>
-          <img src="https://via.placeholder.com/250x150.png?text=Social+Data" alt="Dados Sociais">
-          <div class="img-caption">Twitter, YouTube, Reddit</div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Dashboards -->
-  <section id="dashboards" class="section bg-light">
-    <div class="container text-black-bg-none">
-      <h2 class="container text-black-bg-none">Dashboards Interativos</h2>
-      <div class="row">
-        <!-- Coluna para a Dashboard Individual, com maior largura -->
-        <div class="col-md-8 text-center">
-          <img src="img/Dashboards/Fã Individual.png" alt="Dashboard Individual">
-          <div class="img-caption">Análise Individual: Engajamento</div>
-        </div>
-  
-        <!-- Coluna para as outras análises empilhadas à direita -->
-        <div class="col-md-4">
-          <div class="row">
-            <div class="col-12 text-center">
-              <img src="img/Dashboards/idade_contas_twitter.png" alt="Dashboard Twitter">
-              <div class="img-caption">Análise Geral: Twitter</div>
-            </div>
-            <div class="col-12 text-center">
-              <img src="img/Dashboards/top subred.png" alt="Dashboard Reddit">
-              <div class="img-caption">Análise Geral: Reddit</div>
-            </div>
-            <div class="col-12 text-center">
-              <img src="img/Dashboards/likes_ytb.png" alt="Dashboard YouTube">
-              <div class="img-caption">Análise Geral: YouTube</div>
+    <!-- Dashboards -->
+    <section id="dashboards" class="section bg-light">
+      <div class="container text-black-bg-none">
+        <h2 class="container text-black-bg-none">Dashboards Interativos</h2>
+        <div class="row">
+          <!-- Coluna para a Dashboard Individual, com maior largura -->
+          <div class="col-md-8 text-center">
+            <img
+              src="img/Dashboards/Fã Individual.png"
+              alt="Dashboard Individual"
+            />
+            <div class="img-caption">Análise Individual: Engajamento</div>
+          </div>
+
+          <!-- Coluna para as outras análises empilhadas à direita -->
+          <div class="col-md-4">
+            <div class="row">
+              <div class="col-12 text-center">
+                <img
+                  src="img/Dashboards/idade_contas_twitter.png"
+                  alt="Dashboard Twitter"
+                />
+                <div class="img-caption">Análise Geral: Twitter</div>
+              </div>
+              <div class="col-12 text-center">
+                <img
+                  src="img/Dashboards/top subred.png"
+                  alt="Dashboard Reddit"
+                />
+                <div class="img-caption">Análise Geral: Reddit</div>
+              </div>
+              <div class="col-12 text-center">
+                <img
+                  src="img/Dashboards/likes_ytb.png"
+                  alt="Dashboard YouTube"
+                />
+                <div class="img-caption">Análise Geral: YouTube</div>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
-  
+    </section>
 
-  <!-- Arquitetura -->
-  <section id="arquitetura" class="section">
-    <div class="container">
-      <h2>Planejamento e Arquitetura</h2>
-      <div class="row">
-        <div class="col-md-6 text-center">
-          <img src="https://via.placeholder.com/300x200.png?text=Workflow" alt="Workflow">
-          <div class="img-caption">Workflow Geral do Pipeline</div>
-        </div>
-        <div class="col-md-6 text-center">
-          <img src="https://via.placeholder.com/300x200.png?text=Arquitetura" alt="Arquitetura Técnica">
-          <div class="img-caption">Diagrama de Módulos e Integrações</div>
-        </div>
-        <div class="col-12 text-center mt-4">
-          <img src="https://via.placeholder.com/600x300.png?text=Esbo%C3%A7o+Manual" alt="Esboço Quadro Branco">
-          <div class="img-caption">Esboço no Quadro Branco</div>
+    <!-- Arquitetura -->
+    <section id="arquitetura" class="section">
+      <div class="container">
+        <h2>Planejamento e Arquitetura</h2>
+        <div class="row">
+          <!-- Workflow 2 maior, à esquerda -->
+          <div class="col-md-6 text-center">
+            <img src="img/workflows/workflow 2.png" alt="Arquitetura Técnica" />
+            <div class="img-caption">Diagrama de Módulos e Integrações</div>
+          </div>
+
+          <!-- Outras imagens à direita -->
+          <div class="col-md-6">
+            <div class="row">
+              <!-- Workflow 1 -->
+              <div class="col-12 text-center">
+                <img src="img/workflows/workflow 1.png" alt="Workflow" />
+                <div class="img-caption">Workflow Geral do Pipeline</div>
+              </div>
+
+              <!-- Esboço no Quadro Branco -->
+              <div class="col-12 text-center mt-4">
+                <img
+                  src="img/workflows/quadro branco.jpg"
+                  alt="Esboço Quadro Branco"
+                  width="600"
+                />
+                <div class="img-caption">Esboço no Quadro Branco</div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Instalação -->
-  <section id="instalacao" class="section bg-light">
-    <div class="text-black-bg-none">
-      <h2 class="container text-black-bg-none">Manual de Instalação Local</h2>
-      <pre><code >python -m venv .venv
+    <!-- Instalação -->
+    <section id="instalacao" class="section bg-light">
+      <div class="text-black-bg-none">
+        <h2 class="container text-black-bg-none">Manual de Instalação Local</h2>
+        <pre><code >python -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt</code></pre>
-      <p>Instale o Tesseract OCR conforme documentação oficial para seu OS.</p>
-    </div>
-  </section>
+        <p>
+          Instale o Tesseract OCR conforme documentação oficial para seu OS.
+        </p>
+      </div>
+    </section>
 
-  <!-- API Keys -->
-  <section id="api" class="section">
-    <div class="container">
-      <h2>Obtenção de Chaves de API</h2>
-      <ul>
-        <li><strong>Twitter:</strong> developer.twitter.com → App → Keys and Tokens</li>
-        <li><strong>YouTube:</strong> console.cloud.google.com → APIs & Services → Credentials</li>
-      </ul>
-    </div>
-  </section>
+    <!-- API Keys -->
+    <section id="api" class="section">
+      <div class="container">
+        <h2>Obtenção de Chaves de API</h2>
+        <ul>
+          <li>
+            <strong>Twitter:</strong> developer.twitter.com → App → Keys and
+            Tokens
+          </li>
+          <li>
+            <strong>YouTube:</strong> console.cloud.google.com → APIs & Services
+            → Credentials
+          </li>
+        </ul>
+      </div>
+    </section>
 
-  
+    <!-- Footer -->
+    <section id="contato" class="section bg-light text-center">
+      <div class="container text-black-bg-none">
+        <h2 class="container text-black-bg-none">Contato</h2>
+        <p class="container text-black-bg-none">
+          Desenvolvido por <i>Leonardo Molinaro</i>
+        </p>
 
-  <!-- Footer -->
-<section id="contato" class="section bg-light text-center">
-  <div class="container text-black-bg-none">
-    <h2 class="container text-black-bg-none">Contato</h2>
-    <p class="container text-black-bg-none">Desenvolvido por <i>Leonardo Molinaro</i></p>
+        <div class="social-icons" style="margin-top: 10px">
+          <a
+            href="https://www.linkedin.com/in/leonardo-molinaro-109244277/"
+            target="_blank"
+            class="icon-link"
+          >
+            <i class="fab fa-linkedin fa-2x"></i>
+          </a>
+          <a href="https://linktr.ee/leomolinarodev01" class="icon-link">
+            <i class="fas fa-envelope fa-2x"></i>
+          </a>
+          <a
+            href="https://github.com/LMolinaro01"
+            target="_blank"
+            class="icon-link"
+          >
+            <i class="fab fa-github fa-2x"></i>
+          </a>
+          <a
+            href="https://linktr.ee/leomolinarodev01"
+            target="_blank"
+            class="icon-link"
+          >
+            <i class="fas fa-link fa-2x"></i>
+          </a>
+        </div>
+      </div>
+    </section>
 
-    <div class="social-icons" style="margin-top: 10px;">
-      <a href="https://www.linkedin.com/in/leonardo-molinaro-109244277/" target="_blank" class="icon-link">
-        <i class="fab fa-linkedin fa-2x"></i>
-      </a>
-      <a href="https://linktr.ee/leomolinarodev01" class="icon-link">
-        <i class="fas fa-envelope fa-2x"></i>
-      </a>
-      <a href="https://github.com/LMolinaro01" target="_blank" class="icon-link">
-        <i class="fab fa-github fa-2x"></i>
-      </a>
-      <a href="https://linktr.ee/leomolinarodev01" target="_blank" class="icon-link">
-        <i class="fas fa-link fa-2x"></i>
-      </a>
-    </div>
-  </div>
-</section>
-
-  
-
-  <!-- Scripts JS comentados (ative quando precisar) -->
-  <!--
+    <!-- Scripts JS comentados (ative quando precisar) -->
+    <!--
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
   <script>
     AOS.init({ duration: 1000, once: true });
   </script>
-  -->
-</body>
+  --></body>
 </html>

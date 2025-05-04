@@ -189,6 +189,17 @@ img:hover {
     color: #777777;
 }
 
+.uniform-img {
+    width: 100%;
+    height: 180px;       /* ajuste a altura conforme precisar */
+    object-fit: contain;  /* preserva proporção sem distorcer */
+  }
+  /* legendas centralizadas e em itálico */
+  .fig-caption {
+    margin-top: .5rem;
+    font-style: italic;
+  }
+
 /* -------- Imagens Placeholder -------- */
 /* Adicione a classe `.img-placeholder` em <img> no HTML para usar este placeholder temático */
 
