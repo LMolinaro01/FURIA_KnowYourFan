@@ -1,5 +1,14 @@
 # FURIA – *Know Your Fan*: Solução com Análise de Dados
 
+## Exibição (Youtube)
+
+<p align="center">
+  <a href="https://www.youtube.com/watch?v=G--UphDgHKs" target = "_blank">
+    <img src="https://github.com/user-attachments/assets/169922e4-52db-4efb-a443-cba6fd5fe3b6", width= 720px>
+  </a>
+
+</p>
+
 ## Sumário
 
 - [Explicação Técnica de Cada Módulo](#explicação-técnica-de-cada-módulo)  
