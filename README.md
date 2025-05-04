@@ -1,6 +1,6 @@
 # FURIA – *Know Your Fan*: Solução com Análise de Dados
 
-## Exibição (Youtube)
+## Execução - Solução (Youtube) - Não Listado
 
 <p align="center">
   <a href="https://www.youtube.com/watch?v=G--UphDgHKs" target = "_blank">
