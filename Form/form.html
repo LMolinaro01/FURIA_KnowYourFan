@@ -3,241 +3,178 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="script.js" async></script>
     <title>Formulário FURIA</title>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
     <link rel="stylesheet" type="text/css" href="style.css" media="screen" />
-</head>
+  </head>
   <body>
     <div class="container">
       <img src="templates/furia.png" alt="Logo FURIA" class="furia-logo" />
-
       <h1>Formulário FURIA</h1>
-
       <div id="alert" class="alert"></div>
 
-      <form id="formulario" method="POST">
+      <form id="formulario" method="POST" enctype="multipart/form-data">
         <div class="mb-3">
           <label for="nome">Nome (Completo)</label>
-          <input
-            type="text"
-            class="form-control"
-            id="nome"
-            name="nome"
-            required
-          />
+          <input type="text" class="form-control" id="nome" name="nome" aria-label="Nome completo" required />
         </div>
         <br>
         <div class="mb-3">
           <label for="cpf">CPF</label>
-          <input
-            type="text"
-            class="form-control"
-            id="cpf"
-            name="cpf"
-            required
-          />
+          <input type="text" class="form-control" id="cpf" name="cpf" aria-label="CPF" required />
         </div>
         <br>
         <div class="mb-3">
           <label for="endereco">Estado de Nascença</label>
-          <input
-            type="text"
-            class="form-control"
-            id="endereco"
-            name="endereco"
-            required
-          />
+          <select class="form-control" id="endereco" name="endereco" aria-label="Estado de Nascença" required>
+            <option value="">Selecione</option>
+            <option value="AC">Acre</option>
+            <option value="AL">Alagoas</option>
+            <option value="AP">Amapá</option>
+            <option value="AM">Amazonas</option>
+            <option value="BA">Bahia</option>
+            <option value="CE">Ceará</option>
+            <option value="DF">Distrito Federal</option>
+            <option value="ES">Espírito Santo</option>
+            <option value="GO">Goiás</option>
+            <option value="MA">Maranhão</option>
+            <option value="MT">Mato Grosso</option>
+            <option value="MS">Mato Grosso do Sul</option>
+            <option value="MG">Minas Gerais</option>
+            <option value="PA">Pará</option>
+            <option value="PB">Paraíba</option>
+            <option value="PR">Paraná</option>
+            <option value="PE">Pernambuco</option>
+            <option value="PI">Piauí</option>
+            <option value="RJ">Rio de Janeiro</option>
+            <option value="RN">Rio Grande do Norte</option>
+            <option value="RS">Rio Grande do Sul</option>
+            <option value="RO">Rondônia</option>
+            <option value="RR">Roraima</option>
+            <option value="SC">Santa Catarina</option>
+            <option value="SP">São Paulo</option>
+            <option value="SE">Sergipe</option>
+            <option value="TO">Tocantins</option>
+          </select>
         </div>
-
         <br>
-
         <div class="mb-3">
           <label for="rgImagem">Imagem do RG (Frente)</label>
-          <input
-            type="file"
-            class="form-control"
-            id="rgImagem"
-            name="rgImagem"
-            accept="image/png, image/jpeg"
-            required
-          />
+          <input type="file" class="form-control" id="rgImagem" name="rgImagem" accept="image/png, image/jpeg" required />
         </div>
         <br>
-        
         <div class="mb-3">
           <label for="selfieImagem">Selfie</label>
-          <input
-            type="file"
-            class="form-control"
-            id="selfieImagem"
-            name="selfieImagem"
-            accept="image/png, image/jpeg"
-            required
-          />
+          <input type="file" class="form-control" id="selfieImagem" name="selfieImagem" accept="image/png, image/jpeg" required />
         </div>
-        
-
-        <!--
-        <div class="mb-3">
-          <label for="email">Email</label>
-          <input
-            type="email"
-            class="form-control"
-            id="email"
-            name="email"
-            required
-          />
-        </div> -->
         <br>
         <div class="mb-3">
-        
           <label for="twitter" style="margin-top: 10px;">Twitter (X)</label>
-          <input
-            type="text"
-            class="form-control"
-            id="twitter"
-            name="twitter"
-            placeholder="@seuusuario"
-          />
+          <input type="text" class="form-control" id="twitter" name="twitter" placeholder="@seuusuario" />
         </div>
         <br>
         <div class="mb-3">
           <label for="jogos_furia">Jogos da FURIA</label>
           <div class="checkbox-group">
-            <label>
-              <input type="checkbox" name="jogos_furia" value="CS:GO" />
-              CS:GO
-            </label>
-            <label>
-              <input type="checkbox" name="jogos_furia" value="Valorant" />
-              Valorant
-            </label>
-            <label>
-              <input
-                type="checkbox"
-                name="jogos_furia"
-                value="League of Legends"
-              />
-              League of Legends
-            </label>
-            <label>
-              <input type="checkbox" name="jogos_furia" value="Rocket League" />
-              Rocket League
-            </label>
-            <label>
-              <input type="checkbox" name="jogos_furia" value="Outro" />
-              Outro
-            </label>
+            <label><input type="checkbox" name="jogos_furia[]" value="CS:GO" /> CS:GO</label>
+            <label><input type="checkbox" name="jogos_furia[]" value="Valorant" /> Valorant</label>
+            <label><input type="checkbox" name="jogos_furia[]" value="League of Legends" /> League of Legends</label>
+            <label><input type="checkbox" name="jogos_furia[]" value="Rocket League" /> Rocket League</label>
+            <label><input type="checkbox" name="jogos_furia[]" value="Outro" /> Outro</label>
           </div>
         </div>
         <br>
-
         <div class="mb-3">
-            <fieldset class="checkbox-group" id="produtos_furia">
-              <legend class="form-text">Produtos FURIA</legend>
-          
-              <!-- Categoria: Acessórios -->
-              <fieldset class="checkbox-group">
-                <legend class="form-text">Acessórios</legend>
-                <label><input type="checkbox" name="produtos_furia" value="Bonés" /> Bonés</label>
-                <label><input type="checkbox" name="produtos_furia" value="Buckets" /> Buckets</label>
-                <label><input type="checkbox" name="produtos_furia" value="Meias" /> Meias</label>
-                <label><input type="checkbox" name="produtos_furia" value="Mochilas" /> Mochilas</label>
-              </fieldset>
-          
-              <!-- Categoria: Vestuário -->
-              <fieldset class="checkbox-group">
-                <legend class="form-text">Vestuário</legend>
-                <label><input type="checkbox" name="produtos_furia" value="Camisetas" /> Camisetas</label>
-                <label><input type="checkbox" name="produtos_furia" value="Croppeds" /> Croppeds</label>
-                <label><input type="checkbox" name="produtos_furia" value="Jaquetas" /> Jaquetas</label>
-                <label><input type="checkbox" name="produtos_furia" value="Moletons" /> Moletons</label>
-                <label><input type="checkbox" name="produtos_furia" value="Calças" /> Calças</label>
-                <label><input type="checkbox" name="produtos_furia" value="Shorts" /> Shorts</label>
-              </fieldset>
-          
-              <!-- Categoria: Collabs -->
-              <fieldset class="checkbox-group">
-                <legend class="form-text">Collabs</legend>
-                <label><input type="checkbox" name="produtos_furia" value="Adidas" /> Adidas</label>
-                <label><input type="checkbox" name="produtos_furia" value="Batman" /> Batman</label>
-                <label><input type="checkbox" name="produtos_furia" value="Champion" /> Champion</label>
-                <label><input type="checkbox" name="produtos_furia" value="My Hero Academia" /> My Hero Academia</label>
-                <label><input type="checkbox" name="produtos_furia" value="New Era" /> New Era</label>
-                <label><input type="checkbox" name="produtos_furia" value="Zor" /> Zor</label>
-              </fieldset>
-          
-              <!-- Categoria: Coleções -->
-              <fieldset class="checkbox-group">
-                <legend class="form-text">Coleções</legend>
-                <label><input type="checkbox" name="produtos_furia" value="Classic" /> Classic</label>
-                <label><input type="checkbox" name="produtos_furia" value="Clutch" /> Clutch</label>
-                <label><input type="checkbox" name="produtos_furia" value="Furia" /> Furia</label>
-                <label><input type="checkbox" name="produtos_furia" value="Future is Black" /> Future is Black</label>
-                <label><input type="checkbox" name="produtos_furia" value="Hard To Love x Harder To Kill" /> Hard To Love x Harder To Kill</label>
-                <label><input type="checkbox" name="produtos_furia" value="Magic Panthera" /> Magic Panthera</label>
-                <label><input type="checkbox" name="produtos_furia" value="Spray It" /> Spray It</label>
-              </fieldset>
-
-              <!-- Opção Nenhum -->
-              <label>
-                <input type="checkbox" id="produto_nenhum" name="produtos_furia" value="Nenhum" />
-                Nenhum
-              </label>
-          
+          <fieldset class="checkbox-group" id="produtos_furia">
+            <legend class="form-text">Produtos FURIA</legend>
+            <fieldset class="checkbox-group">
+              <legend class="form-text">Acessórios</legend>
+              <label><input type="checkbox" name="produtos_furia[]" value="Bonés" /> Bonés</label>
+              <label><input type="checkbox" name="produtos_furia[]" value="Buckets" /> Buckets</label>
+              <label><input type="checkbox" name="produtos_furia[]" value="Meias" /> Meias</label>
+              <label><input type="checkbox" name="produtos_furia[]" value="Mochilas" /> Mochilas</label>
             </fieldset>
-          </div>
-          
-
+            <fieldset class="checkbox-group">
+              <legend class="form-text">Vestuário</legend>
+              <label><input type="checkbox" name="produtos_furia[]" value="Camisetas" /> Camisetas</label>
+              <label><input type="checkbox" name="produtos_furia[]" value="Croppeds" /> Croppeds</label>
+              <label><input type="checkbox" name="produtos_furia[]" value="Jaquetas" /> Jaquetas</label>
+              <label><input type="checkbox" name="produtos_furia[]" value="Moletons" /> Moletons</label>
+              <label><input type="checkbox" name="produtos_furia[]" value="Calças" /> Calças</label>
+              <label><input type="checkbox" name="produtos_furia[]" value="Shorts" /> Shorts</label>
+            </fieldset>
+            <fieldset class="checkbox-group">
+              <legend class="form-text">Collabs</legend>
+              <label><input type="checkbox" name="produtos_furia[]" value="Adidas" /> Adidas</label>
+              <label><input type="checkbox" name="produtos_furia[]" value="Batman" /> Batman</label>
+              <label><input type="checkbox" name="produtos_furia[]" value="Champion" /> Champion</label>
+              <label><input type="checkbox" name="produtos_furia[]" value="My Hero Academia" /> My Hero Academia</label>
+              <label><input type="checkbox" name="produtos_furia[]" value="New Era" /> New Era</label>
+              <label><input type="checkbox" name="produtos_furia[]" value="Zor" /> Zor</label>
+            </fieldset>
+            <fieldset class="checkbox-group">
+              <legend class="form-text">Coleções</legend>
+              <label><input type="checkbox" name="produtos_furia[]" value="Classic" /> Classic</label>
+              <label><input type="checkbox" name="produtos_furia[]" value="Clutch" /> Clutch</label>
+              <label><input type="checkbox" name="produtos_furia[]" value="Furia" /> Furia</label>
+              <label><input type="checkbox" name="produtos_furia[]" value="Future is Black" /> Future is Black</label>
+              <label><input type="checkbox" name="produtos_furia[]" value="Hard To Love x Harder To Kill" /> Hard To Love x Harder To Kill</label>
+              <label><input type="checkbox" name="produtos_furia[]" value="Magic Panthera" /> Magic Panthera</label>
+              <label><input type="checkbox" name="produtos_furia[]" value="Spray It" /> Spray It</label>
+            </fieldset>
+            <label><input type="checkbox" id="produto_nenhum" name="produtos_furia[]" value="Nenhum" /> Nenhum</label>
+          </fieldset>
+        </div>
         <div class="mb-3">
           <label for="eventos_furia">Eventos</label>
-          <select
-            class="form-control"
-            id="eventos_furia"
-            name="eventos_furia"
-            required
-          >
+          <select class="form-control" id="eventos_furia" name="eventos_furia" required>
             <option value="Nunca participei">Nunca participei</option>
             <option value="Eventos online">Eventos online</option>
             <option value="Eventos presenciais">Eventos presenciais</option>
             <option value="Ambos">Ambos</option>
           </select>
         </div>
-
         <button type="submit" class="btn-custom">Salvar Dados</button>
       </form>
     </div>
 
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-          const chkNenhum = document.getElementById('produto_nenhum');
-          const outros = Array.from(
-            document.querySelectorAll('input[name="produtos_furia"]')
-          ).filter(c => c !== chkNenhum);
-      
-          // Se marcar “Nenhum”, desmarca todos os outros
-          chkNenhum.addEventListener('change', () => {
-            if (chkNenhum.checked) {
-              outros.forEach(c => c.checked = false);
-            }
-          });
-      
-          // Se marcar qualquer outro, desmarca “Nenhum”
-          outros.forEach(c => {
-            c.addEventListener('change', () => {
-              if (c.checked) {
-                chkNenhum.checked = false;
-              }
-            });
+      document.addEventListener('DOMContentLoaded', () => {
+        const chkNenhum = document.getElementById('produto_nenhum');
+        const outros = Array.from(document.querySelectorAll('input[name="produtos_furia[]"]')).filter(c => c !== chkNenhum);
+
+        chkNenhum.addEventListener('change', () => {
+          if (chkNenhum.checked) outros.forEach(c => c.checked = false);
+        });
+
+        outros.forEach(c => {
+          c.addEventListener('change', () => {
+            if (c.checked) chkNenhum.checked = false;
           });
         });
-      </script>
-      
 
-   
+        // Máscara de CPF
+        const cpf = document.getElementById('cpf');
+        cpf.addEventListener('input', function () {
+          this.value = this.value.replace(/\D/g, '')
+            .replace(/(\d{3})(\d)/, '$1.$2')
+            .replace(/(\d{3})(\d)/, '$1.$2')
+            .replace(/(\d{3})(\d{1,2})$/, '$1-$2');
+        });
+
+        // Validação de tamanho das imagens (máximo 2MB)
+        const maxFileSize = 2 * 1024 * 1024;
+        ['rgImagem', 'selfieImagem'].forEach(id => {
+          document.getElementById(id).addEventListener('change', function () {
+            if (this.files[0].size > maxFileSize) {
+              alert("Imagem muito grande! Máximo 2MB.");
+              this.value = "";
+            }
+          });
+        });
+      });
+    </script>
+
+    <script src="script.js"></script>
   </body>
 </html>
